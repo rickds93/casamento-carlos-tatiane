@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles (updated with animations + countdown)
+/* styles.css — Wedding invitation styles (updated with animations + countdown + buttons)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -106,6 +106,23 @@ h1,h2,p,blockquote{margin:0}
 .button.animate-in{ transform:scale(1); opacity:1; }
 .button:hover{background:linear-gradient(90deg,var(--rose-light),#fee9e9); box-shadow:0 6px 18px rgba(199,146,130,0.12); transform:scale(1.03)}
 
+/* Secondary button variant (Confirmar Presença) */
+.button.secondary{
+  background:transparent;
+  color:var(--rose-gold);
+  border:2px solid var(--rose-gold);
+}
+.button.secondary:hover{ background:linear-gradient(90deg, rgba(199,146,130,0.06), rgba(199,146,130,0.02)); }
+
+/* Button group */
+.button-group{
+  display:inline-flex;
+  gap:14px;
+  align-items:center;
+  justify-content:center;
+  margin-top:18px;
+}
+
 /* Countdown styles */
 .countdown{ margin-top:18px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
 .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
@@ -177,4 +194,5 @@ h1,h2,p,blockquote{margin:0}
   .petal{ width:12px; height:12px; }
   .countdown-inner{ gap:12px; }
   .countdown .number{ font-size:20px; }
+  .button-group{ gap:10px; flex-direction:column; }
 }

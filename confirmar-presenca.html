@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Confirmar Presença — Carlos &amp; Tatiane</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="invite" style="max-width:640px;">
+      <h1 class="amp">Confirmar Presença</h1>
+      <p style="font-family: 'Cormorant Garamond', serif; margin-top:8px;">Por favor, confirme sua presença preenchendo o formulário abaixo. Ao enviar, seu e-mail será aberto para envio automático.</p>
+
+      <form id="rsvp-form" style="margin-top:18px; text-align:left;">
+        <label style="display:block; margin-bottom:8px; font-weight:600;">Nome completo
+          <input type="text" id="rsvp-name" name="name" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
+        </label>
+        <label style="display:block; margin-bottom:8px; font-weight:600;">E-mail
+          <input type="email" id="rsvp-email" name="email" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
+        </label>
+        <label style="display:block; margin-bottom:8px; font-weight:600;">Número de convidados
+          <input type="number" id="rsvp-qty" name="qty" min="0" max="10" value="1" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
+        </label>
+        <label style="display:block; margin-bottom:8px; font-weight:600;">Mensagem (opcional)
+          <textarea id="rsvp-msg" name="message" rows="4" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);"></textarea>
+        </label>
+
+        <div style="display:flex; gap:10px; margin-top:12px;">
+          <button type="submit" class="button">Enviar confirmação</button>
+          <a href="index.html" class="button secondary">Voltar</a>
+        </div>
+      </form>
+
+      <p style="margin-top:12px; font-size:13px; color:rgba(0,0,0,0.6);">Ao enviar, será aberta sua aplicação de e-mail com os dados preenchidos. Se preferir, envie direto para <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    // Build mailto from form and open user's mail client
+    document.getElementById('rsvp-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('rsvp-name').value || '');
+      const email = encodeURIComponent(document.getElementById('rsvp-email').value || '');
+      const qty = encodeURIComponent(document.getElementById('rsvp-qty').value || '');
+      const msg = encodeURIComponent(document.getElementById('rsvp-msg').value || '');
+
+      const subject = encodeURIComponent('Confirmação de Presença — Carlos & Tatiane');
+      const body = encodeURIComponent(`Nome: ${decodeURIComponent(name)}\nE-mail: ${decodeURIComponent(email)}\nNúmero de convidados: ${decodeURIComponent(qty)}\nMensagem: ${decodeURIComponent(msg)}`);
+
+      window.location.href = `mailto:contato@exemplo.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>

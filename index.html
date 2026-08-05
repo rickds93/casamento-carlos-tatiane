@@ -25,8 +25,24 @@
 
       <blockquote class="quote" id="quote" data-anim="6">“O amor nunca falha.”</blockquote>
 
-      <a class="button" id="gift-button" href="lista-de-presentes.md" data-anim="7">Lista de Presentes</a>
-      <div class="divider" data-anim="8"></div>
+      <!-- Countdown to event -->
+      <div class="countdown" id="countdown" data-anim="7" aria-live="polite" role="timer" aria-atomic="true">
+        <div class="countdown-inner">
+          <div class="countdown-unit"><span class="number" id="cd-days">0</span><span class="label">dias</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-hours">0</span><span class="label">horas</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-minutes">0</span><span class="label">min</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-seconds">0</span><span class="label">seg</span></div>
+        </div>
+        <div class="countdown-message" id="cd-message" aria-hidden="true"></div>
+      </div>
+
+      <!-- Buttons: Lista de Presentes + Confirmar Presença -->
+      <div class="button-group" data-anim="8">
+        <a class="button" id="gift-button" href="lista-de-presentes.md">Lista de Presentes</a>
+        <a class="button secondary" id="rsvp-button" href="confirmar-presenca.html">Confirmar Presença</a>
+      </div>
+
+      <div class="divider" data-anim="9"></div>
     </section>
   </main>
 
