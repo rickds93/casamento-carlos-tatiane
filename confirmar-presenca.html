@@ -19,76 +19,97 @@
     .counter .value{ min-width:36px; text-align:center; font-weight:600; }
     .submit-row{ display:flex; justify-content:center; margin-top:18px; }
     .note{ font-size:13px; color:rgba(0,0,0,0.6); text-align:center; margin-top:10px; }
-    @media (max-width:640px){ .rsvp-container{ padding:20px 14px; } }
+
+    /* Success screen */
+    .success-screen{ display:none; text-align:center; padding:24px; }
+    .success-heart{ font-size:54px; color:#C79282; margin-bottom:8px; }
+    .success-title{ font-size:28px; font-family:'Cormorant Garamond', serif; margin:6px 0; }
+    .success-text{ color:rgba(0,0,0,0.75); margin-top:8px; line-height:1.5; }
+    .success-buttons{ display:flex; gap:12px; justify-content:center; margin-top:16px; }
+
+    @media (max-width:640px){ .rsvp-container{ padding:20px 14px; } .success-buttons{ flex-direction:column; } }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="invite rsvp-container" style="max-width:640px;">
-      <div class="rsvp-title">
-        <h1 style="margin:0; font-family: 'Great Vibes', cursive; font-size:44px; color:var(--rose-gold);">Confirme sua Presença</h1>
-        <p class="rsvp-sub" style="margin:8px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:18px;">Carlos Alexandre &amp; Tatiane</p>
-        <p class="rsvp-sub" style="margin:6px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:16px;">06/03/2027</p>
+      <div id="form-area">
+        <div class="rsvp-title">
+          <h1 style="margin:0; font-family: 'Great Vibes', cursive; font-size:44px; color:var(--rose-gold);">Confirme sua Presença</h1>
+          <p class="rsvp-sub" style="margin:8px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:18px;">Carlos Alexandre &amp; Tatiane</p>
+          <p class="rsvp-sub" style="margin:6px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:16px;">06/03/2027</p>
+        </div>
+
+        <div class="rsvp-divider" aria-hidden="true"></div>
+
+        <form id="rsvp-form" novalidate>
+          <div class="field">
+            <label class="field-label" for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Seu nome completo" />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="email">Email <small style="color:rgba(0,0,0,0.6); font-weight:400;">(opcional)</small></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="phone">Telefone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(DD) 9xxxx-xxxx" />
+          </div>
+
+          <div class="field" aria-label="adultos"> 
+            <label class="field-label">Adultos</label>
+            <div class="counter" role="group" aria-label="Adultos">
+              <button type="button" id="adults-decr" aria-label="Diminuir adultos">−</button>
+              <div class="value" id="adults-value">2</div>
+              <button type="button" id="adults-incr" aria-label="Aumentar adultos">+</button>
+            </div>
+          </div>
+
+          <div class="field" aria-label="crianças">
+            <label class="field-label">Crianças</label>
+            <div class="counter" role="group" aria-label="Crianças">
+              <button type="button" id="kids-decr" aria-label="Diminuir crianças">−</button>
+              <div class="value" id="kids-value">0</div>
+              <button type="button" id="kids-incr" aria-label="Aumentar crianças">+</button>
+            </div>
+          </div>
+
+          <div class="rsvp-divider" aria-hidden="true"></div>
+
+          <div class="field">
+            <label class="field-label" for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="4" placeholder="Deixe uma mensagem (opcional)"></textarea>
+          </div>
+
+          <div class="rsvp-divider" aria-hidden="true"></div>
+
+          <div class="submit-row">
+            <button type="submit" id="submit" class="button">Confirmar Presença</button>
+          </div>
+
+          <p class="note">Ao confirmar, enviaremos os dados para os organizadores. Você receberá confirmação por e‑mail se fornecer.</p>
+
+          <p id="feedback" style="display:none; text-align:center; margin-top:12px; font-weight:600;"></p>
+        </form>
       </div>
 
-      <div class="rsvp-divider" aria-hidden="true"></div>
-
-      <form id="rsvp-form" novalidate>
-        <div class="field">
-          <label class="field-label" for="name">Nome</label>
-          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Seu nome completo" />
+      <div id="success-area" class="success-screen" aria-hidden="true">
+        <div class="success-heart">❤️</div>
+        <div class="success-title">Obrigado!</div>
+        <div class="success-text">Sua presença foi confirmada.<br>Estamos muito felizes em celebrar<br>esse momento com você.<br><br><strong>Carlos Alexandre &amp; Tatiane</strong></div>
+        <div class="success-buttons">
+          <a class="button" href="index.html">Voltar ao início</a>
+          <a class="button secondary" href="lista-de-presentes.md">Ver lista de presentes</a>
         </div>
+      </div>
 
-        <div class="field">
-          <label class="field-label" for="email">Email <small style="color:rgba(0,0,0,0.6); font-weight:400;">(opcional)</small></label>
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" />
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="phone">Telefone</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(DD) 9xxxx-xxxx" />
-        </div>
-
-        <div class="field" aria-label="adultos"> 
-          <label class="field-label">Adultos</label>
-          <div class="counter" role="group" aria-label="Adultos">
-            <button type="button" id="adults-decr" aria-label="Diminuir adultos">−</button>
-            <div class="value" id="adults-value">2</div>
-            <button type="button" id="adults-incr" aria-label="Aumentar adultos">+</button>
-          </div>
-        </div>
-
-        <div class="field" aria-label="crianças">
-          <label class="field-label">Crianças</label>
-          <div class="counter" role="group" aria-label="Crianças">
-            <button type="button" id="kids-decr" aria-label="Diminuir crianças">−</button>
-            <div class="value" id="kids-value">0</div>
-            <button type="button" id="kids-incr" aria-label="Aumentar crianças">+</button>
-          </div>
-        </div>
-
-        <div class="rsvp-divider" aria-hidden="true"></div>
-
-        <div class="field">
-          <label class="field-label" for="message">Mensagem</label>
-          <textarea id="message" name="message" rows="4" placeholder="Deixe uma mensagem (opcional)"></textarea>
-        </div>
-
-        <div class="rsvp-divider" aria-hidden="true"></div>
-
-        <div class="submit-row">
-          <button type="submit" id="submit" class="button">Confirmar Presença</button>
-        </div>
-
-        <p class="note">Ao confirmar, enviaremos os dados para os organizadores. Você receberá confirmação por e‑mail se fornecido.</p>
-
-        <p id="feedback" style="display:none; text-align:center; margin-top:12px; font-weight:600;"></p>
-      </form>
     </section>
   </main>
 
   <script>
-    // Counter controls
+    // Counter controls and form logic
     (function(){
       const adultsValue = document.getElementById('adults-value');
       const kidsValue = document.getElementById('kids-value');
@@ -116,6 +137,13 @@
       // Form submit logic (sends to Apps Script endpoint if configured, fallback to mailto)
       async function loadConfig(){
         try{ const res = await fetch('/config.json'); if(!res.ok) return null; return await res.json(); }catch(e){ return null; }
+      }
+
+      function showSuccess(){
+        document.getElementById('form-area').style.display = 'none';
+        const success = document.getElementById('success-area');
+        success.style.display = 'block';
+        success.removeAttribute('aria-hidden');
       }
 
       function showFeedback(msg, success){
@@ -152,7 +180,7 @@
             });
             let ok = false;
             try{ const data = await res.json(); ok = data && data.status === 'success'; }catch(err){ ok = res.ok; }
-            if(ok){ showFeedback('Confirmação enviada. Obrigado!', true); document.getElementById('rsvp-form').reset(); document.getElementById('adults-value').textContent = '2'; document.getElementById('kids-value').textContent = '0'; }
+            if(ok){ showSuccess(); }
             else{ showFeedback('Falha ao enviar. Tente novamente.', false); }
           }catch(err){ console.error(err); showFeedback('Erro de rede. Tente novamente.', false); }
         } else {
