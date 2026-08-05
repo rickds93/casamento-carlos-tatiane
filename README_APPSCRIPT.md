@@ -1,6 +1,6 @@
 # Google Apps Script — Deploy Guide (RSVP collection)
 
-This file explains how to deploy the included Google Apps Script (apps-script/Code.gs) as a Web App that accepts POST requests and saves RSVPs into a Google Sheet.
+This file explains how to deploy the included Google Apps Script (apps-script/Code.gs) as a Web App that accepts POST requests and saves RSVPs into a Google Sheet. This version also sends a notification email to tatiengpro@gmail.com whenever a new RSVP is received.
 
 1) Create a Google Spreadsheet to receive responses
 - Go to Google Drive -> New -> Google Sheets
@@ -29,7 +29,7 @@ This file explains how to deploy the included Google Apps Script (apps-script/Co
 - In the repository, create a file named `config.json` (based on config.sample.json) in the repository root and set:
   {
     "appsScriptEndpoint":"https://script.google.com/macros/s/XXXXX/exec",
-    "notifyEmail":"seu-email@exemplo.com"
+    "notifyEmail":"tatiengpro@gmail.com"
   }
 - Commit (or keep locally if you prefer). The site will POST JSON to that endpoint.
 
@@ -43,7 +43,7 @@ This file explains how to deploy the included Google Apps Script (apps-script/Co
 
 8) Notes
 - The script stores User Agent when available. Retrieving client IP is not reliable via Apps Script without extra services.
-- If you prefer secured submissions (authenticated users), change access to "Only users in your domain" or similar, but that requires users to sign in.
+- The script now sends an email notification to tatiengpro@gmail.com for each RSVP; the organizer can reply directly to the guest because the script sets Reply-To to the guest's email when present.
 - Do not commit secrets into a public repo. If you prefer, keep `config.json` out of the repo and add the endpoint via the Pages host or environment.
 
-If you want, I can also prepare an automated deploy guide or a short script to programmatically create the Apps Script project via the Google Drive API — tell me and I can add steps.
+If you want, I can also prepare the script to send a richer HTML email or attach the RSVP data in CSV format — tell me and I can add it.
