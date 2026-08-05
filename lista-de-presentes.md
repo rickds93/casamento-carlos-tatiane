@@ -1,248 +1,44 @@
 # Lista de Presentes
 
-[
-  {
-    "id": 1,
-    "nome": "Jogo de Panelas Premium",
-    "valor": 899.90,
-    "descricao": "Conjunto completo de panelas para preparar nossas primeiras refeições como casal."
-  },
-  {
-    "id": 2,
-    "nome": "Air Fryer Digital",
-    "valor": 499.90,
-    "descricao": "Para deixar nossa cozinha mais prática e preparar receitas deliciosas."
-  },
-  {
-    "id": 3,
-    "nome": "Cafeteira Expresso",
-    "valor": 699.90,
-    "descricao": "Para começarmos nossos dias com um café especial juntos."
-  },
-  {
-    "id": 4,
-    "nome": "Liquidificador Premium",
-    "valor": 299.90,
-    "descricao": "Ideal para sucos, vitaminas e receitas do nosso novo lar."
-  },
-  {
-    "id": 5,
-    "nome": "Processador de Alimentos",
-    "valor": 429.90,
-    "descricao": "Mais praticidade para preparar nossas refeições."
-  },
-  {
-    "id": 6,
-    "nome": "Batedeira Planetária",
-    "valor": 699.90,
-    "descricao": "Para criarmos momentos doces preparando bolos e sobremesas."
-  },
-  {
-    "id": 7,
-    "nome": "Micro-ondas",
-    "valor": 799.90,
-    "descricao": "Um item essencial para facilitar nossa rotina."
-  },
-  {
-    "id": 8,
-    "nome": "Robô Aspirador",
-    "valor": 1499.90,
-    "descricao": "Tecnologia para ajudar a manter nosso lar sempre organizado."
-  },
-  {
-    "id": 9,
-    "nome": "Aspirador de Pó",
-    "valor": 399.90,
-    "descricao": "Para cuidar da limpeza da nossa casa com praticidade."
-  },
-  {
-    "id": 10,
-    "nome": "Purificador de Água",
-    "valor": 899.90,
-    "descricao": "Água pura e saudável para nossa família."
-  },
-  {
-    "id": 11,
-    "nome": "Jogo de Pratos Completo",
-    "valor": 499.90,
-    "descricao": "Para receber familiares e amigos em nossa casa."
-  },
-  {
-    "id": 12,
-    "nome": "Jogo de Talheres",
-    "valor": 299.90,
-    "descricao": "Um conjunto elegante para nossas refeições."
-  },
-  {
-    "id": 13,
-    "nome": "Jogo de Taças de Vinho",
-    "valor": 249.90,
-    "descricao": "Para brindar nossas conquistas e momentos especiais."
-  },
-  {
-    "id": 14,
-    "nome": "Kit Churrasco",
-    "valor": 349.90,
-    "descricao": "Perfeito para reunir amigos e família."
-  },
-  {
-    "id": 15,
-    "nome": "Churrasqueira Elétrica",
-    "valor": 699.90,
-    "descricao": "Para nossos finais de semana com bons momentos."
-  },
-  {
-    "id": 16,
-    "nome": "Conjunto de Facas Premium",
-    "valor": 349.90,
-    "descricao": "Facilidade e qualidade para preparar nossas refeições."
-  },
-  {
-    "id": 17,
-    "nome": "Jogo de Cama Queen",
-    "valor": 399.90,
-    "descricao": "Conforto para nossas noites de descanso."
-  },
-  {
-    "id": 18,
-    "nome": "Edredom Premium",
-    "valor": 299.90,
-    "descricao": "Para deixar nosso quarto mais aconchegante."
-  },
-  {
-    "id": 19,
-    "nome": "Toalhas de Banho",
-    "valor": 249.90,
-    "descricao": "Kit completo para nosso novo lar."
-  },
-  {
-    "id": 20,
-    "nome": "Travesseiros Premium",
-    "valor": 199.90,
-    "descricao": "Mais conforto para nossas noites."
-  },
-
-  {
-    "id": 21,
-    "nome": "Jantar Romântico",
-    "valor": 350.00,
-    "descricao": "Uma experiência especial para celebrarmos nosso amor."
-  },
-  {
-    "id": 22,
-    "nome": "Café da Manhã Especial",
-    "valor": 180.00,
-    "descricao": "Um momento delicioso para começarmos um dia juntos."
-  },
-  {
-    "id": 23,
-    "nome": "Massagem para Casal",
-    "valor": 450.00,
-    "descricao": "Relaxamento e bem-estar depois da correria do casamento."
-  },
-  {
-    "id": 24,
-    "nome": "Dia de SPA",
-    "valor": 650.00,
-    "descricao": "Uma experiência de descanso e renovação."
-  },
-  {
-    "id": 25,
-    "nome": "Passeio de Barco",
-    "valor": 500.00,
-    "descricao": "Um passeio inesquecível durante nossa viagem."
-  },
-  {
-    "id": 26,
-    "nome": "Passeio de Buggy",
-    "valor": 350.00,
-    "descricao": "Aventura e diversão para o casal."
-  },
-  {
-    "id": 27,
-    "nome": "Sessão de Fotos do Casal",
-    "valor": 600.00,
-    "descricao": "Registrar momentos especiais da nossa história."
-  },
-  {
-    "id": 28,
-    "nome": "Aula de Culinária",
-    "valor": 350.00,
-    "descricao": "Aprender novas receitas juntos."
-  },
-  {
-    "id": 29,
-    "nome": "Curso de Dança",
-    "valor": 450.00,
-    "descricao": "Criar novas memórias através da dança."
-  },
-  {
-    "id": 30,
-    "nome": "Ingresso para Show",
-    "valor": 300.00,
-    "descricao": "Uma noite especial de música e diversão."
-  },
-
-  {
-    "id": 31,
-    "nome": "Passagem Aérea Lua de Mel",
-    "valor": 2000.00,
-    "descricao": "Ajude o casal a chegar ao destino dos sonhos."
-  },
-  {
-    "id": 32,
-    "nome": "Hospedagem Lua de Mel",
-    "valor": 1200.00,
-    "descricao": "Uma estadia confortável e inesquecível."
-  },
-  {
-    "id": 33,
-    "nome": "Jantar na Lua de Mel",
-    "valor": 450.00,
-    "descricao": "Um jantar especial durante nossa viagem."
-  },
-  {
-    "id": 34,
-    "nome": "Seguro Viagem",
-    "valor": 300.00,
-    "descricao": "Segurança para aproveitarmos cada momento."
-  },
-  {
-    "id": 35,
-    "nome": "Passeio Turístico",
-    "valor": 400.00,
-    "descricao": "Conhecer lugares incríveis juntos."
-  },
-
-  {
-    "id": 36,
-    "nome": "Mala de Viagem Grande",
-    "valor": 599.90,
-    "descricao": "Para nossas próximas aventuras."
-  },
-  {
-    "id": 37,
-    "nome": "Mala de Bordo",
-    "valor": 399.90,
-    "descricao": "Praticidade para viagens rápidas."
-  },
-  {
-    "id": 38,
-    "nome": "Sofá da Sala",
-    "valor": 3500.00,
-    "descricao": "O conforto para nossa sala e nossos momentos juntos."
-  },
-  {
-    "id": 39,
-    "nome": "Mesa de Jantar",
-    "valor": 2000.00,
-    "descricao": "O lugar onde compartilharemos muitas refeições."
-  },
-  {
-    "id": 40,
-    "nome": "Cama Queen",
-    "valor": 2800.00,
-    "descricao": "Nosso espaço de descanso e conforto."
-  }
-
-]
+| Nº | Presente                 | Valor sugerido | Descrição                                                                                                   |
+| -- | ------------------------ | -------------: | ----------------------------------------------------------------------------------------------------------- |
+| 1  | Jogo de panelas premium  |      R$ 899,90 | Um conjunto especial para prepararmos nossas primeiras refeições e criar momentos inesquecíveis na cozinha. |
+| 2  | Air Fryer                |      R$ 499,90 | Mais praticidade para preparar receitas deliciosas e saudáveis no nosso novo lar.                           |
+| 3  | Cafeteira automática     |      R$ 649,90 | Para começarmos nossos dias com um café especial e muitos momentos juntos.                                  |
+| 4  | Máquina de café expresso |    R$ 1.299,90 | Uma experiência de cafeteria dentro de casa para apreciarmos bons cafés.                                    |
+| 5  | Liquidificador           |      R$ 299,90 | Ideal para sucos, vitaminas e receitas do nosso dia a dia.                                                  |
+| 6  | Processador de alimentos |      R$ 429,90 | Ajuda a tornar o preparo das refeições mais rápido e prático.                                               |
+| 7  | Batedeira                |      R$ 399,90 | Para prepararmos bolos, sobremesas e momentos doces juntos.                                                 |
+| 8  | Sanduicheira             |      R$ 199,90 | Perfeita para cafés da manhã e lanches rápidos.                                                             |
+| 9  | Torradeira               |      R$ 179,90 | Para deixar nossos cafés da manhã ainda mais especiais.                                                     |
+| 10 | Micro-ondas              |      R$ 799,90 | Praticidade para aquecer refeições e facilitar nossa rotina.                                                |
+| 11 | Aspirador de pó          |      R$ 399,90 | Para manter nossa casa sempre limpa e aconchegante.                                                         |
+| 12 | Robô aspirador           |    R$ 1.499,90 | Tecnologia para ajudar na limpeza e aproveitar mais tempo juntos.                                           |
+| 13 | Ferro de passar          |      R$ 179,90 | Para manter nossas roupas sempre organizadas.                                                               |
+| 14 | Ventilador               |      R$ 299,90 | Conforto para os dias mais quentes em nosso lar.                                                            |
+| 15 | Purificador de água      |      R$ 899,90 | Água pura e saudável para nossa nova família.                                                               |
+| 16 | Churrasqueira elétrica   |      R$ 699,90 | Para reunir amigos e familiares em momentos especiais.                                                      |
+| 17 | Conjunto de facas        |      R$ 349,90 | Ferramentas essenciais para preparar nossas refeições.                                                      |
+| 18 | Jogo de pratos           |      R$ 499,90 | Para nossas refeições diárias e encontros especiais.                                                        |
+| 19 | Jogo de talheres         |      R$ 299,90 | Um conjunto elegante para nossa mesa.                                                                       |
+| 20 | Jogo de taças            |      R$ 249,90 | Para brindar nossas conquistas e celebrar momentos importantes.                                             |
+| 21 | Jogo de copos            |      R$ 199,90 | Para receber amigos e familiares em nossa casa.                                                             |
+| 22 | Panos de prato           |       R$ 99,90 | Pequenos detalhes que tornam nossa cozinha mais completa.                                                   |
+| 23 | Toalhas de banho         |      R$ 249,90 | Conforto e aconchego para nossos momentos de descanso.                                                      |
+| 24 | Jogo de cama Queen       |      R$ 399,90 | Para deixar nosso quarto ainda mais confortável.                                                            |
+| 25 | Edredom                  |      R$ 299,90 | Para noites mais aconchegantes e tranquilas.                                                                |
+| 26 | Travesseiros premium     |      R$ 199,90 | Mais conforto para nossas noites de descanso.                                                               |
+| 27 | Cortinas                 |      R$ 499,90 | Para deixar nossa casa mais bonita e acolhedora.                                                            |
+| 28 | Tapetes                  |      R$ 399,90 | Para trazer conforto e estilo aos ambientes.                                                                |
+| 29 | Espelho decorativo       |      R$ 299,90 | Um toque especial de decoração para nosso lar.                                                              |
+| 30 | Quadros decorativos      |      R$ 299,90 | Para deixar nossa casa com a nossa personalidade.                                                           |
+| 31 | Luminária                |      R$ 249,90 | Iluminação especial para criar ambientes aconchegantes.                                                     |
+| 32 | Plantas decorativas      |      R$ 199,90 | Mais vida e natureza para nossa casa.                                                                       |
+| 33 | Aromatizador de ambiente |      R$ 149,90 | Para deixar nosso lar sempre perfumado e agradável.                                                         |
+| 34 | Organizador de armário   |      R$ 199,90 | Para manter nossa casa organizada e funcional.                                                              |
+| 35 | Kit churrasco            |      R$ 349,90 | Para criar momentos especiais com família e amigos.                                                         |
+| 36 | Adega climatizada        |    R$ 1.299,90 | Para guardar vinhos e celebrar datas importantes.                                                           |
+| 37 | Caixa de ferramentas     |      R$ 299,90 | Para cuidar dos pequenos reparos da nossa casa.                                                             |
+| 38 | Mala de viagem grande    |      R$ 599,90 | Para nossas próximas aventuras e viagens.                                                                   |
+| 39 | Mala de bordo            |      R$ 399,90 | Praticidade para viagens rápidas do casal.                                                                  |
+| 40 | Mochila de viagem        |      R$ 299,90 | Para acompanhar nossas experiências pelo mundo.                                                             |
