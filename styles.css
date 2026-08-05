@@ -1,0 +1,95 @@
+/* styles.css — Wedding invitation styles
+   Palette:
+     --white: #FFFFFF;
+     --rose-light: #FBEFF0;
+     --rose-gold: #C79282;
+     --gray-light: #F5F5F6;
+*/
+:root{
+  --white:#FFFFFF;
+  --rose-light:#FBEFF0;
+  --rose-gold:#C79282;
+  --gray-light:#F5F5F6;
+  --text:#2b2b2b;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--gray-light);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.wrap{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 24px;
+}
+.invite{
+  background:var(--white);
+  max-width:760px;
+  width:100%;
+  padding:56px 48px;
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(42,42,42,0.08);
+  text-align:center;
+  border:1px solid rgba(199,146,130,0.08);
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+  margin:10px auto 26px;
+  width:60%;
+}
+h1,h2,p,blockquote{margin:0}
+.small{
+  font-family: 'Cormorant Garamond', serif;
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:1px;
+  color:var(--text);
+}
+.amp{
+  font-family: 'Great Vibes', cursive;
+  font-size:86px;
+  margin:16px 0;
+  color:var(--rose-gold);
+  line-height:0.8;
+}
+.date{
+  margin-top:18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size:18px;
+  color:rgba(43,43,43,0.85);
+  letter-spacing:0.6px;
+}
+.quote{
+  margin-top:22px;
+  font-style:italic;
+  color:rgba(43,43,43,0.8);
+  font-family: 'Cormorant Garamond', serif;
+  font-size:18px;
+}
+.button{
+  display:inline-block;
+  margin-top:26px;
+  padding:12px 20px;
+  background:var(--rose-light);
+  color:var(--text);
+  text-decoration:none;
+  border-radius:999px;
+  border:2px solid var(--rose-gold);
+  font-weight:600;
+  font-family: 'Montserrat', sans-serif;
+}
+.button:hover{background:linear-gradient(90deg,var(--rose-light),#fee9e9)}
+
+@media (max-width:640px){
+  .invite{padding:36px 20px}
+  .small{font-size:22px}
+  .amp{font-size:62px}
+}
