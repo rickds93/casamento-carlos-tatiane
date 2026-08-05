@@ -10,9 +10,9 @@
   <main class="wrap">
     <section class="invite" style="max-width:640px;">
       <h1 class="amp">Confirmar Presença</h1>
-      <p style="font-family: 'Cormorant Garamond', serif; margin-top:8px;">Por favor, confirme sua presença preenchendo o formulário abaixo. Ao enviar, seu e-mail será aberto para envio automático.</p>
+      <p style="font-family: 'Cormorant Garamond', serif; margin-top:8px;">Por favor, confirme sua presença preenchendo o formulário abaixo.</p>
 
-      <form id="rsvp-form" style="margin-top:18px; text-align:left;">
+      <form id="rsvp-form" style="margin-top:18px; text-align:left;" autocomplete="on">
         <label style="display:block; margin-bottom:8px; font-weight:600;">Nome completo
           <input type="text" id="rsvp-name" name="name" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
         </label>
@@ -27,28 +27,86 @@
         </label>
 
         <div style="display:flex; gap:10px; margin-top:12px;">
-          <button type="submit" class="button">Enviar confirmação</button>
+          <button type="submit" class="button" id="rsvp-submit">Enviar confirmação</button>
           <a href="index.html" class="button secondary">Voltar</a>
         </div>
+
+        <p id="rsvp-feedback" style="margin-top:12px; font-size:14px; color:var(--rose-gold); display:none;"></p>
       </form>
 
-      <p style="margin-top:12px; font-size:13px; color:rgba(0,0,0,0.6);">Ao enviar, será aberta sua aplicação de e-mail com os dados preenchidos. Se preferir, envie direto para <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>.</p>
+      <p style="margin-top:12px; font-size:13px; color:rgba(0,0,0,0.6);">Se preferir, envie direto para <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>.</p>
     </section>
   </main>
 
   <script>
-    // Build mailto from form and open user's mail client
-    document.getElementById('rsvp-form').addEventListener('submit', function(e){
+    // RSVP: send to configured Apps Script endpoint (set config.json in repo root with appsScriptEndpoint)
+    async function loadConfig(){
+      try{
+        const res = await fetch('/config.json');
+        if(!res.ok) return null;
+        return await res.json();
+      }catch(e){ return null; }
+    }
+
+    function showMessage(msg, success){
+      const el = document.getElementById('rsvp-feedback');
+      el.textContent = msg;
+      el.style.display = 'block';
+      el.style.color = success ? 'var(--rose-gold)' : '#c33';
+    }
+
+    document.getElementById('rsvp-form').addEventListener('submit', async function(e){
       e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('rsvp-name').value || '');
-      const email = encodeURIComponent(document.getElementById('rsvp-email').value || '');
-      const qty = encodeURIComponent(document.getElementById('rsvp-qty').value || '');
-      const msg = encodeURIComponent(document.getElementById('rsvp-msg').value || '');
+      const name = document.getElementById('rsvp-name').value.trim();
+      const email = document.getElementById('rsvp-email').value.trim();
+      const qty = document.getElementById('rsvp-qty').value;
+      const message = document.getElementById('rsvp-msg').value.trim();
 
-      const subject = encodeURIComponent('Confirmação de Presença — Carlos & Tatiane');
-      const body = encodeURIComponent(`Nome: ${decodeURIComponent(name)}\nE-mail: ${decodeURIComponent(email)}\nNúmero de convidados: ${decodeURIComponent(qty)}\nMensagem: ${decodeURIComponent(msg)}`);
+      const config = await loadConfig();
+      const endpoint = config && config.appsScriptEndpoint ? config.appsScriptEndpoint.trim() : '';
 
-      window.location.href = `mailto:contato@exemplo.com?subject=${subject}&body=${body}`;
+      const payload = { name: name, email: email, qty: qty, message: message };
+
+      const submitButton = document.getElementById('rsvp-submit');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+
+      if(endpoint){
+        try{
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            mode: 'cors'
+          });
+          // Try parse JSON response
+          let ok = false;
+          try{
+            const data = await res.json();
+            ok = data && data.status === 'success';
+          }catch(err){
+            ok = res.ok;
+          }
+
+          if(ok){
+            showMessage('Confirmação enviada. Obrigado!', true);
+            document.getElementById('rsvp-form').reset();
+          } else {
+            showMessage('Falha ao enviar. Tente novamente ou use o e-mail.', false);
+          }
+        }catch(err){
+          console.error(err);
+          showMessage('Erro de rede. Tente novamente ou use o e-mail.', false);
+        }
+      } else {
+        // Fallback: open mailto
+        const subject = encodeURIComponent('Confirmação de Presença — Carlos & Tatiane');
+        const body = encodeURIComponent('Nome: ' + name + '\nE-mail: ' + email + '\nNúmero de convidados: ' + qty + '\nMensagem: ' + message);
+        window.location.href = 'mailto:' + (config && config.notifyEmail ? config.notifyEmail : 'contato@exemplo.com') + '?subject=' + subject + '&body=' + body;
+      }
+
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar confirmação';
     });
   </script>
 </body>
