@@ -1,6 +1,5 @@
-// Code.gs — Google Apps Script to receive RSVP POSTs and send a notification email
-// This version does NOT save responses to a Spreadsheet; it only sends an email to the organizer.
-// Recipient is set to tatiengpro@gmail.com (change in the code if needed).
+// Code.gs — Google Apps Script to receive RSVP POSTs and send a nicely formatted HTML notification email
+// This version sends an HTML email to the organizer (tatiengpro@gmail.com) and sets Reply-To to the guest email when provided.
 function doPost(e) {
   try {
     var raw = e.postData && e.postData.contents ? e.postData.contents : '{}';
@@ -11,23 +10,37 @@ function doPost(e) {
 
     var timestamp = new Date();
 
-    // Send notification email to the event organizer
+    // Build plain-text body (fallback)
+    var plainBody = 'Você recebeu uma nova confirmação de presença:\n\n'
+      + 'Nome: ' + (data.name || '') + '\n'
+      + 'E-mail: ' + (data.email || '') + '\n'
+      + 'Número de convidados: ' + (data.qty || '') + '\n'
+      + 'Mensagem: ' + (data.message || '') + '\n\n'
+      + 'Timestamp: ' + timestamp + '\n'
+      + 'User Agent: ' + ua + '\n';
+
+    // Build HTML body
+    var htmlBody = '<div style="font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif; color:#222; line-height:1.45;">'
+      + '<h2 style="color:#C79282; margin:0 0 8px 0;">Nova confirmação de presença</h2>'
+      + '<table cellpadding="6" cellspacing="0" style="border-collapse:collapse; font-size:14px; color:#333;">'
+      + rowHtml('Nome', escapeHtml(data.name || ''))
+      + rowHtml('E-mail', escapeHtml(data.email || ''))
+      + rowHtml('Número de convidados', escapeHtml(data.qty || ''))
+      + rowHtml('Mensagem', escapeHtml(data.message || ''))
+      + rowHtml('Timestamp', String(timestamp))
+      + rowHtml('User Agent', escapeHtml(ua))
+      + '</table>'
+      + '<p style="color:#666; font-size:13px; margin-top:12px;">Este é um e‑mail automático enviado pelo site de convite.</p>'
+      + '</div>';
+
+    // Send email
     try{
       var recipient = 'tatiengpro@gmail.com'; // notification recipient
       var subject = 'Nova confirmação de presença — Carlos & Tatiane';
-      var body = 'Você recebeu uma nova confirmação de presença:\n\n'
-        + 'Nome: ' + (data.name || '') + '\n'
-        + 'E-mail: ' + (data.email || '') + '\n'
-        + 'Número de convidados: ' + (data.qty || '') + '\n'
-        + 'Mensagem: ' + (data.message || '') + '\n\n'
-        + 'Timestamp: ' + timestamp + '\n'
-        + 'User Agent: ' + ua + '\n';
-
-      var options = {};
+      var options = { htmlBody: htmlBody };
       if(data.email) options.replyTo = data.email;
-      MailApp.sendEmail(recipient, subject, body, options);
+      MailApp.sendEmail(recipient, subject, plainBody, options);
     }catch(mailErr){
-      // Log but do not fail the request
       Logger.log('Mail send error: ' + mailErr.message);
     }
 
@@ -39,4 +52,23 @@ function doPost(e) {
     output.setMimeType(ContentService.MimeType.JSON);
     return output;
   }
+}
+
+// Helper to generate an HTML table row (label + value)
+function rowHtml(label, value){
+  return '<tr>'
+    + '<td style="vertical-align:top; font-weight:600; padding-right:12px; color:#444;">' + label + '</td>'
+    + '<td style="vertical-align:top; padding-bottom:6px;">' + value + '</td>'
+    + '</tr>';
+}
+
+// Basic HTML-escape to avoid breaking the HTML structure.
+function escapeHtml(str){
+  if(!str && str !== 0) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
