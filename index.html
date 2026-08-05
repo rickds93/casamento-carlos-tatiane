@@ -8,20 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Particles canvas (background) -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <!-- Petals container -->
+  <div id="petals" aria-hidden="true"></div>
+
   <main class="wrap">
-    <section class="invite">
-      <div class="divider"></div>
-      <h2 class="small">Carlos Alexandre</h2>
-      <h1 class="amp">&amp;</h1>
-      <h2 class="small">Tatiane</h2>
+    <section class="invite" id="invite">
+      <div class="divider" data-anim="1"></div>
 
-      <p class="date">06 Março 2027</p>
+      <h2 class="small" id="name1" data-anim="2">Carlos Alexandre</h2>
+      <h1 class="amp" id="amp" data-anim="3">&amp;</h1>
+      <h2 class="small" id="name2" data-anim="4">Tatiane</h2>
 
-      <blockquote class="quote">“O amor nunca falha.”</blockquote>
+      <p class="date" id="date" data-anim="5">06 Março 2027</p>
 
-      <a class="button" href="lista-de-presentes.md">Lista de Presentes</a>
-      <div class="divider"></div>
+      <blockquote class="quote" id="quote" data-anim="6">“O amor nunca falha.”</blockquote>
+
+      <a class="button" id="gift-button" href="lista-de-presentes.md" data-anim="7">Lista de Presentes</a>
+      <div class="divider" data-anim="8"></div>
     </section>
   </main>
+
+  <script src="scripts.js" defer></script>
 </body>
 </html>
