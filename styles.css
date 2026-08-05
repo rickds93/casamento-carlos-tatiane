@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles
+/* styles.css — Wedding invitation styles (updated with animations)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -28,6 +28,8 @@ body{
   align-items:center;
   justify-content:center;
   padding:48px 24px;
+  position:relative;
+  z-index:2;
 }
 .invite{
   background:var(--white);
@@ -38,6 +40,14 @@ body{
   box-shadow:0 8px 30px rgba(42,42,42,0.08);
   text-align:center;
   border:1px solid rgba(199,146,130,0.08);
+  /* initial hidden state for entrance animations */
+  opacity:0;
+  transform:scale(.98);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.25,1);
+}
+.invite.is-visible{
+  opacity:1;
+  transform:scale(1);
 }
 .divider{
   height:1px;
@@ -52,6 +62,7 @@ h1,h2,p,blockquote{margin:0}
   font-weight:600;
   letter-spacing:1px;
   color:var(--text);
+  opacity:0; transform:translateY(8px) scale(.99);
 }
 .amp{
   font-family: 'Great Vibes', cursive;
@@ -59,6 +70,7 @@ h1,h2,p,blockquote{margin:0}
   margin:16px 0;
   color:var(--rose-gold);
   line-height:0.8;
+  opacity:0; transform:scale(.8) translateY(6px);
 }
 .date{
   margin-top:18px;
@@ -66,6 +78,7 @@ h1,h2,p,blockquote{margin:0}
   font-size:18px;
   color:rgba(43,43,43,0.85);
   letter-spacing:0.6px;
+  opacity:0; transform:translateY(8px);
 }
 .quote{
   margin-top:22px;
@@ -73,6 +86,7 @@ h1,h2,p,blockquote{margin:0}
   color:rgba(43,43,43,0.8);
   font-family: 'Cormorant Garamond', serif;
   font-size:18px;
+  opacity:0; transform:translateY(8px);
 }
 .button{
   display:inline-block;
@@ -85,11 +99,81 @@ h1,h2,p,blockquote{margin:0}
   border:2px solid var(--rose-gold);
   font-weight:600;
   font-family: 'Montserrat', sans-serif;
+  opacity:0;
+  transform:scale(.8);
+  transition:transform .28s cubic-bezier(.2,.9,.25,1), box-shadow .18s ease;
 }
-.button:hover{background:linear-gradient(90deg,var(--rose-light),#fee9e9)}
+.button.animate-in{ transform:scale(1); opacity:1; }
+.button:hover{background:linear-gradient(90deg,var(--rose-light),#fee9e9); box-shadow:0 6px 18px rgba(199,146,130,0.12); transform:scale(1.03)}
 
+/* Entrance animation utilities (applied via JS by data-anim order) */
+[data-anim].animated{
+  opacity:1;
+  transform:none;
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.25,1);
+}
+
+/* Text reveal (optional) using mask/clip for more dramatic effect) */
+.reveal-text{
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+}
+.reveal-text span{
+  display:inline-block;
+  transform:translateY(100%);
+  transition:transform .6s cubic-bezier(.2,.9,.25,1);
+}
+.reveal-text.animated span{ transform:translateY(0%); }
+
+/* Petals styles (DOM elements) */
+#petals{
+  pointer-events:none;
+  position:fixed;
+  left:0; top:0; right:0; bottom:0;
+  overflow:hidden;
+  z-index:1;
+}
+.petal{
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:radial-gradient(circle at 40% 30%, #fff, var(--rose-light) 50%, var(--rose-gold) 100%);
+  border-radius:50% 50% 50% 50% / 40% 40% 60% 60%;
+  opacity:.95;
+  transform-origin:center;
+  will-change:transform, top, left, opacity;
+  pointer-events:none;
+}
+
+/* keyframes for petals */
+@keyframes fall {
+  0%{ transform:translateY(-10vh) rotate(0deg); opacity:0; }
+  10%{ opacity:1; }
+  100%{ transform:translateY(110vh) rotate(540deg); opacity:0.9; }
+}
+
+/* Particles canvas sits behind content */
+#particles-canvas{
+  position:fixed;
+  left:0; top:0;
+  width:100%; height:100%;
+  z-index:0;
+  pointer-events:none;
+  display:block;
+}
+
+/* Reduced motion: disable heavy animations */
+@media (prefers-reduced-motion: reduce){
+  .invite, [data-anim], .reveal-text span, .button{ transition:none !important; animation:none !important; transform:none !important; opacity:1 !important; }
+  #petals{ display:none; }
+  #particles-canvas{ display:none; }
+}
+
+/* Responsive tweaks */
 @media (max-width:640px){
   .invite{padding:36px 20px}
   .small{font-size:22px}
   .amp{font-size:62px}
+  .petal{ width:12px; height:12px; }
 }
