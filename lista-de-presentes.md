@@ -36,11 +36,11 @@
 | Cinema VIP                 |      R$ 200,00 | Uma noite especial com conforto e diversão.                       |
 | Escape Room para casal     |      R$ 250,00 | Uma experiência de desafio e trabalho em equipe.                  |
 | Passeio em parque aquático |      R$ 350,00 | Um dia divertido para relaxar e aproveitar juntos.                |
-| Dia em parque de diversões |      R$ 400,00 | Um momento de alegria e diversão como casal.                      |
+| Presente surpresa |      R$ ...... | Um carinho inesperado para fazer parte da nossa história. Onde você define o valor |
 
 ✈️ Lua de Mel e Viagens
-| Presente                        | Valor sugerido | Descrição                                                           |
-| ------------------------ | -------------: | -------------------------------------------------------------------------- |
+| Presente               | Valor sugerido | Descrição                                                |
+| ------------------------ | -------------: | ------------------------------------------------------ |
 | Café da manhã especial na viagem  |       R$ 80,00 | Um café da manhã delicioso para começar um dia inesquecível juntos. |
 | Sorvete à beira-mar               |       R$ 50,00 | Um momento simples e romântico para aproveitar o destino da viagem. |
 | Jantar especial do casal          |      R$ 200,00 | Uma noite especial com boa comida e uma vista incrível.             |
@@ -80,21 +80,21 @@
 | Lembranças da viagem            |      R$ 250,00 | Pequenos detalhes para recordar momentos inesquecíveis.             |
 | Vinho especial                  |      R$ 300,00 | Um brinde especial durante nossa viagem.                            |
 | Pôr do sol em passeio exclusivo |      R$ 600,00 | Uma experiência romântica para guardar na memória.                  |
-| Fundo para próxima viagem       |    R$ 1.000,00 | Uma contribuição para continuarmos realizando sonhos juntos.        |
+| Fundo para próxima viagem       |    R$ ...... | Uma contribuição para continuarmos realizando sonhos juntos.        |
 
 🏡 Projetos e Sonhos do Casal
-| Presente                 | Valor sugerido | Descrição                                                                                                   |
-| ------------------------ | -------------: | ----------------------------------------------------------------------------------------------------------- |
+| Presente               | Valor sugerido | Descrição                                                |
+| ------------------------ | -------------: | ------------------------------------------------------ |
 | Reforma da casa                            |    R$ 2.000,00 | Uma contribuição para transformar nosso lar no lugar dos nossos sonhos. |
 | Pintura da casa                            |    R$ 1.500,00 | Para deixar nosso ambiente mais bonito e personalizado.                 |
 | Churrasco com amigos                       |      R$ 500,00 | Um momento especial para celebrar nossa nova fase com pessoas queridas. |
 | Assinatura de streaming                    |      R$ 300,00 | Para nossas noites de filmes e séries em casa.                          |
 | Investimento para sonhos futuros           |    R$ 1.000,00 | Ajuda para realizarmos novos projetos juntos.                           |
-| Presente surpresa                          |      R$ ...... | Um carinho inesperado para fazer parte da nossa história.               |
+| Presente surpresa                          |      R$ ...... | Um carinho inesperado para fazer parte da nossa história. Onde você define o valor |
 
 🏠 Itens para o Lar
-| Presente                 | Valor sugerido | Descrição                                                                                                   |
-| ------------------------ | -------------: | ----------------------------------------------------------------------------------------------------------- |
+| Presente               | Valor sugerido | Descrição                                                |
+| ------------------------ | -------------: | ------------------------------------------------------ |
 | Kit de potes organizadores    |       R$ 45,00 | Ajuda a manter os alimentos e a cozinha sempre organizados.             |
 | Aromatizador de ambiente      |       R$ 35,00 | Para deixar nosso novo lar sempre perfumado e aconchegante.             |
 | Porta-temperos                |       R$ 50,00 | Mais praticidade para preparar nossas refeições.                        |
@@ -152,5 +152,5 @@
 | Caixa de ferramentas     |      R$ 299,90 | Para cuidar dos pequenos reparos da nossa casa.                                                             |
 | Mala de viagem grande    |      R$ 599,90 | Para nossas próximas aventuras e viagens.                                                                   |
 | Mala de bordo            |      R$ 399,90 | Praticidade para viagens rápidas do casal.                                                                  |
-| Mochila de viagem        |      R$ 299,90 | Para acompanhar nossas experiências pelo mundo. 
-
+| Mochila de viagem        |      R$ 299,90 | Para acompanhar nossas experiências pelo mundo.                                                             |
+| Presente surpresa        |      R$ ...... | Um carinho inesperado para fazer parte da nossa história. Onde você define o valor                          |
