@@ -5,109 +5,168 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Confirmar Presença — Carlos &amp; Tatiane</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific tweaks for RSVP form layout */
+    .rsvp-container{ padding:32px 24px; }
+    .rsvp-title{ text-align:center; margin-bottom:18px; }
+    .rsvp-sub{ text-align:center; color:rgba(43,43,43,0.75); margin-top:4px; }
+    .rsvp-divider{ height:1px; background:linear-gradient(90deg, transparent, #C79282, transparent); margin:18px 0; }
+    .field{ margin-bottom:12px; }
+    label.field-label{ display:block; font-weight:600; margin-bottom:6px; }
+    input[type=text], input[type=email], input[type=tel], textarea{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); font-size:15px; }
+    .counter{ display:flex; align-items:center; gap:10px; }
+    .counter button{ width:36px; height:36px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); background:#fff; cursor:pointer; font-size:18px; }
+    .counter .value{ min-width:36px; text-align:center; font-weight:600; }
+    .submit-row{ display:flex; justify-content:center; margin-top:18px; }
+    .note{ font-size:13px; color:rgba(0,0,0,0.6); text-align:center; margin-top:10px; }
+    @media (max-width:640px){ .rsvp-container{ padding:20px 14px; } }
+  </style>
 </head>
 <body>
   <main class="wrap">
-    <section class="invite" style="max-width:640px;">
-      <h1 class="amp">Confirmar Presença</h1>
-      <p style="font-family: 'Cormorant Garamond', serif; margin-top:8px;">Por favor, confirme sua presença preenchendo o formulário abaixo.</p>
+    <section class="invite rsvp-container" style="max-width:640px;">
+      <div class="rsvp-title">
+        <h1 style="margin:0; font-family: 'Great Vibes', cursive; font-size:44px; color:var(--rose-gold);">Confirme sua Presença</h1>
+        <p class="rsvp-sub" style="margin:8px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:18px;">Carlos Alexandre &amp; Tatiane</p>
+        <p class="rsvp-sub" style="margin:6px 0 0 0; font-family:'Cormorant Garamond', serif; font-size:16px;">06/03/2027</p>
+      </div>
 
-      <form id="rsvp-form" style="margin-top:18px; text-align:left;" autocomplete="on">
-        <label style="display:block; margin-bottom:8px; font-weight:600;">Nome completo
-          <input type="text" id="rsvp-name" name="name" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
-        </label>
-        <label style="display:block; margin-bottom:8px; font-weight:600;">E-mail
-          <input type="email" id="rsvp-email" name="email" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
-        </label>
-        <label style="display:block; margin-bottom:8px; font-weight:600;">Número de convidados
-          <input type="number" id="rsvp-qty" name="qty" min="0" max="10" value="1" required style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);" />
-        </label>
-        <label style="display:block; margin-bottom:8px; font-weight:600;">Mensagem (opcional)
-          <textarea id="rsvp-msg" name="message" rows="4" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);"></textarea>
-        </label>
+      <div class="rsvp-divider" aria-hidden="true"></div>
 
-        <div style="display:flex; gap:10px; margin-top:12px;">
-          <button type="submit" class="button" id="rsvp-submit">Enviar confirmação</button>
-          <a href="index.html" class="button secondary">Voltar</a>
+      <form id="rsvp-form" novalidate>
+        <div class="field">
+          <label class="field-label" for="name">Nome</label>
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Seu nome completo" />
         </div>
 
-        <p id="rsvp-feedback" style="margin-top:12px; font-size:14px; color:var(--rose-gold); display:none;"></p>
-      </form>
+        <div class="field">
+          <label class="field-label" for="email">Email <small style="color:rgba(0,0,0,0.6); font-weight:400;">(opcional)</small></label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" />
+        </div>
 
-      <p style="margin-top:12px; font-size:13px; color:rgba(0,0,0,0.6);">Se preferir, envie direto para <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>.</p>
+        <div class="field">
+          <label class="field-label" for="phone">Telefone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(DD) 9xxxx-xxxx" />
+        </div>
+
+        <div class="field" aria-label="adultos"> 
+          <label class="field-label">Adultos</label>
+          <div class="counter" role="group" aria-label="Adultos">
+            <button type="button" id="adults-decr" aria-label="Diminuir adultos">−</button>
+            <div class="value" id="adults-value">2</div>
+            <button type="button" id="adults-incr" aria-label="Aumentar adultos">+</button>
+          </div>
+        </div>
+
+        <div class="field" aria-label="crianças">
+          <label class="field-label">Crianças</label>
+          <div class="counter" role="group" aria-label="Crianças">
+            <button type="button" id="kids-decr" aria-label="Diminuir crianças">−</button>
+            <div class="value" id="kids-value">0</div>
+            <button type="button" id="kids-incr" aria-label="Aumentar crianças">+</button>
+          </div>
+        </div>
+
+        <div class="rsvp-divider" aria-hidden="true"></div>
+
+        <div class="field">
+          <label class="field-label" for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="4" placeholder="Deixe uma mensagem (opcional)"></textarea>
+        </div>
+
+        <div class="rsvp-divider" aria-hidden="true"></div>
+
+        <div class="submit-row">
+          <button type="submit" id="submit" class="button">Confirmar Presença</button>
+        </div>
+
+        <p class="note">Ao confirmar, enviaremos os dados para os organizadores. Você receberá confirmação por e‑mail se fornecido.</p>
+
+        <p id="feedback" style="display:none; text-align:center; margin-top:12px; font-weight:600;"></p>
+      </form>
     </section>
   </main>
 
   <script>
-    // RSVP: send to configured Apps Script endpoint (set config.json in repo root with appsScriptEndpoint)
-    async function loadConfig(){
-      try{
-        const res = await fetch('/config.json');
-        if(!res.ok) return null;
-        return await res.json();
-      }catch(e){ return null; }
-    }
+    // Counter controls
+    (function(){
+      const adultsValue = document.getElementById('adults-value');
+      const kidsValue = document.getElementById('kids-value');
+      const adultsMin = 1, adultsMax = 10;
+      const kidsMin = 0, kidsMax = 10;
 
-    function showMessage(msg, success){
-      const el = document.getElementById('rsvp-feedback');
-      el.textContent = msg;
-      el.style.display = 'block';
-      el.style.color = success ? 'var(--rose-gold)' : '#c33';
-    }
+      document.getElementById('adults-decr').addEventListener('click', ()=>{
+        let v = parseInt(adultsValue.textContent,10);
+        if(v>adultsMin) adultsValue.textContent = v-1;
+      });
+      document.getElementById('adults-incr').addEventListener('click', ()=>{
+        let v = parseInt(adultsValue.textContent,10);
+        if(v<adultsMax) adultsValue.textContent = v+1;
+      });
 
-    document.getElementById('rsvp-form').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const name = document.getElementById('rsvp-name').value.trim();
-      const email = document.getElementById('rsvp-email').value.trim();
-      const qty = document.getElementById('rsvp-qty').value;
-      const message = document.getElementById('rsvp-msg').value.trim();
+      document.getElementById('kids-decr').addEventListener('click', ()=>{
+        let v = parseInt(kidsValue.textContent,10);
+        if(v>kidsMin) kidsValue.textContent = v-1;
+      });
+      document.getElementById('kids-incr').addEventListener('click', ()=>{
+        let v = parseInt(kidsValue.textContent,10);
+        if(v<kidsMax) kidsValue.textContent = v+1;
+      });
 
-      const config = await loadConfig();
-      const endpoint = config && config.appsScriptEndpoint ? config.appsScriptEndpoint.trim() : '';
-
-      const payload = { name: name, email: email, qty: qty, message: message };
-
-      const submitButton = document.getElementById('rsvp-submit');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Enviando...';
-
-      if(endpoint){
-        try{
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-            mode: 'cors'
-          });
-          // Try parse JSON response
-          let ok = false;
-          try{
-            const data = await res.json();
-            ok = data && data.status === 'success';
-          }catch(err){
-            ok = res.ok;
-          }
-
-          if(ok){
-            showMessage('Confirmação enviada. Obrigado!', true);
-            document.getElementById('rsvp-form').reset();
-          } else {
-            showMessage('Falha ao enviar. Tente novamente ou use o e-mail.', false);
-          }
-        }catch(err){
-          console.error(err);
-          showMessage('Erro de rede. Tente novamente ou use o e-mail.', false);
-        }
-      } else {
-        // Fallback: open mailto
-        const subject = encodeURIComponent('Confirmação de Presença — Carlos & Tatiane');
-        const body = encodeURIComponent('Nome: ' + name + '\nE-mail: ' + email + '\nNúmero de convidados: ' + qty + '\nMensagem: ' + message);
-        window.location.href = 'mailto:' + (config && config.notifyEmail ? config.notifyEmail : 'contato@exemplo.com') + '?subject=' + subject + '&body=' + body;
+      // Form submit logic (sends to Apps Script endpoint if configured, fallback to mailto)
+      async function loadConfig(){
+        try{ const res = await fetch('/config.json'); if(!res.ok) return null; return await res.json(); }catch(e){ return null; }
       }
 
-      submitButton.disabled = false;
-      submitButton.textContent = 'Enviar confirmação';
-    });
+      function showFeedback(msg, success){
+        const el = document.getElementById('feedback');
+        el.style.display = 'block';
+        el.textContent = msg;
+        el.style.color = success ? 'var(--rose-gold)' : '#c33';
+      }
+
+      document.getElementById('rsvp-form').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        if(!name){ showFeedback('Por favor informe seu nome.', false); return; }
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const adults = parseInt(document.getElementById('adults-value').textContent,10);
+        const kids = parseInt(document.getElementById('kids-value').textContent,10);
+        const message = document.getElementById('message').value.trim();
+
+        const payload = { name, email, phone, adults, kids, message };
+
+        const submitBtn = document.getElementById('submit');
+        submitBtn.disabled = true; submitBtn.textContent = 'Enviando...';
+
+        const config = await loadConfig();
+        const endpoint = config && config.appsScriptEndpoint ? config.appsScriptEndpoint.trim() : '';
+
+        if(endpoint){
+          try{
+            const res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type':'application/json' },
+              body: JSON.stringify(payload)
+            });
+            let ok = false;
+            try{ const data = await res.json(); ok = data && data.status === 'success'; }catch(err){ ok = res.ok; }
+            if(ok){ showFeedback('Confirmação enviada. Obrigado!', true); document.getElementById('rsvp-form').reset(); document.getElementById('adults-value').textContent = '2'; document.getElementById('kids-value').textContent = '0'; }
+            else{ showFeedback('Falha ao enviar. Tente novamente.', false); }
+          }catch(err){ console.error(err); showFeedback('Erro de rede. Tente novamente.', false); }
+        } else {
+          // fallback mailto
+          const subject = encodeURIComponent('Confirmação de Presença — Carlos & Tatiane');
+          const body = encodeURIComponent('Nome: ' + name + '\nE-mail: ' + email + '\nTelefone: ' + phone + '\nAdultos: ' + adults + '\nCrianças: ' + kids + '\nMensagem: ' + message);
+          const notify = (config && config.notifyEmail) ? config.notifyEmail : 'tatiengpro@gmail.com';
+          window.location.href = 'mailto:' + notify + '?subject=' + subject + '&body=' + body;
+        }
+
+        submitBtn.disabled = false; submitBtn.textContent = 'Confirmar Presença';
+      });
+
+    })();
   </script>
 </body>
 </html>
