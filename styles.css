@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles (updated with animations + countdown + buttons)
+/* styles.css — Wedding invitation styles (updated: all page text set to black)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -10,7 +10,7 @@
   --rose-light:#FBEFF0;
   --rose-gold:#C79282;
   --gray-light:#F5F5F6;
-  --text:#2b2b2b;
+  --text:#000000; /* UPDATED: all page text should be black */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -76,14 +76,14 @@ h1,h2,p,blockquote{margin:0}
   margin-top:18px;
   font-family: 'Cormorant Garamond', serif;
   font-size:18px;
-  color:rgba(43,43,43,0.85);
+  color:var(--text);
   letter-spacing:0.6px;
   opacity:0; transform:translateY(8px);
 }
 .quote{
   margin-top:22px;
   font-style:italic;
-  color:rgba(43,43,43,0.8);
+  color:var(--text);
   font-family: 'Cormorant Garamond', serif;
   font-size:18px;
   opacity:0; transform:translateY(8px);
@@ -128,7 +128,7 @@ h1,h2,p,blockquote{margin:0}
 .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
 .countdown-unit{ display:flex; flex-direction:column; align-items:center; }
 .countdown .number{ font-family:'Cormorant Garamond', serif; font-size:28px; color:var(--text); font-weight:700; }
-.countdown .label{ font-size:12px; color:rgba(43,43,43,0.65); margin-top:4px; }
+.countdown .label{ font-size:12px; color:var(--text); margin-top:4px; }
 .countdown-message{ margin-top:10px; font-size:14px; color:var(--rose-gold); }
 
 /* Entrance animation utilities (applied via JS by data-anim order) */
