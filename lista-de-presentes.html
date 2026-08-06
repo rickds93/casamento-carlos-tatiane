@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lista de Presentes — Carlos &amp; Tatiane</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gifts-wrap{ max-width:900px; margin:0 auto; padding:40px 20px; }
+    h1{ font-family: 'Cormorant Garamond', serif; font-size:36px; margin-bottom:8px; color:var(--text); }
+    p.lead{ color:var(--text); margin-bottom:18px; }
+    table.gifts{ width:100%; border-collapse:collapse; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(42,42,42,0.06); }
+    table.gifts thead th{ text-align:left; padding:14px 16px; background:linear-gradient(90deg, rgba(199,146,130,0.06), rgba(199,146,130,0.02)); font-weight:700; color:var(--text); }
+    table.gifts tbody td{ padding:12px 16px; border-top:1px solid rgba(0,0,0,0.04); color:var(--text); vertical-align:middle; }
+    .actions{ text-align:right; }
+    .reserve-btn{ display:inline-block; padding:8px 12px; border-radius:8px; background:var(--rose-light); border:1px solid var(--rose-gold); color:var(--text); text-decoration:none; font-weight:600; }
+    .status{ font-size:13px; color:rgba(0,0,0,0.7); }
+    .note{ margin-top:14px; color:var(--text); }
+    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(42,42,42,0.04); } .actions{ text-align:left; margin-top:8px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap gifts-wrap">
+    <h1>Lista de Presentes</h1>
+    <p class="lead">Abaixo está nossa lista de presentes. Clique em "Reservar" para avisar aos organizadores qual item você escolheu — isso abre um e‑mail pronto para envio. Após comprar, por favor indique o status no campo "Status".</p>
+
+    <table class="gifts" aria-describedby="gifts-desc">
+      <caption id="gifts-desc" style="text-align:left; padding:12px 16px; font-size:13px; color:var(--text);">Itens sugeridos para presentear o casal</caption>
+      <thead>
+        <tr>
+          <th style="width:40%">Item</th>
+          <th style="width:30%">Loja / Link</th>
+          <th style="width:20%">Observações</th>
+          <th style="width:10%">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Conjunto de taças (6 unidades)</td>
+          <td><a href="https://example.com/taças" target="_blank" rel="noopener">Casa das Taças</a></td>
+          <td>Cristal; elegante para jantares</td>
+          <td class="status actions"><a class="reserve-btn" href="mailto:tatiengpro@gmail.com?subject=Reserva%20-%20Conjunto%20de%20ta%C3%A7as&body=Olá%2C%0A%0AGostaria%20de%20reservar%20o%20item%3A%20Conjunto%20de%20ta%C3%A7as%20(6%20unidades)%0A%0APor%20favor%20informem%20se%20estiver%20dispon%C3%ADvel.%0A%0Cordialmente%2C%0A%5BNome%5D">Reservar</a></td>
+        </tr>
+        <tr>
+          <td>Jogo de cama casal (Lençol + Fronha)</td>
+          <td><a href="https://example.com/lençol" target="_blank" rel="noopener">Loja Rouparia</a></td>
+          <td>300 fios, algodão egípcio</td>
+          <td class="status actions"><a class="reserve-btn" href="mailto:tatiengpro@gmail.com?subject=Reserva%20-%20Jogo%20de%20cama%20casal&body=Olá%2C%0A%0AGostaria%20de%20reservar%20o%20item%3A%20Jogo%20de%20cama%20casal%20(Len%C3%A7ol%20%2B%20Fronha)%0A%0APor%20favor%20informem%20se%20estiver%20dispon%C3%ADvel.%0A%0Cordialmente%2C%0A%5BNome%5D">Reservar</a></td>
+        </tr>
+        <tr>
+          <td>Conjunto de panelas (5 peças)</td>
+          <td><a href="https://example.com/panelas" target="_blank" rel="noopener">Panelas &amp; Cia</a></td>
+          <td>Antiaderente profissional</td>
+          <td class="status">Reservado por Maria</td>
+        </tr>
+        <tr>
+          <td>Jogo de talheres 24 peças</td>
+          <td><a href="https://example.com/talheres" target="_blank" rel="noopener">Talheria</a></td>
+          <td>Aço inox, acabamento acetinado</td>
+          <td class="status actions"><a class="reserve-btn" href="mailto:tatiengpro@gmail.com?subject=Reserva%20-%20Jogo%20de%20talheres&body=Olá%2C%0A%0AGostaria%20de%20reservar%20o%20item%3A%20Jogo%20de%20talheres%2024%20pe%C3%A7as%0A%0APor%20favor%20informem%20se%20estiver%20dispon%C3%ADvel.%0A%0Cordialmente%2C%0A%5BNome%5D">Reservar</a></td>
+        </tr>
+        <tr>
+          <td>Gift card</td>
+          <td>Loja à escolha</td>
+          <td>Valor sugerido: R$100–300</td>
+          <td class="status actions"><a class="reserve-btn" href="mailto:tatiengpro@gmail.com?subject=Reserva%20-%20Gift%20card&body=Olá%2C%0A%0AGostaria%20de%20reservar%20o%20item%3A%20Gift%20card%0A%0APor%20favor%20informem%20se%20estiver%20dispon%C3%ADvel.%0A%0Cordialmente%2C%0A%5BNome%5D">Reservar</a></td>
+        </tr>
+        <tr>
+          <td>Contribuição via transferência</td>
+          <td>—</td>
+          <td>IBAN/PIX: colocar nos comentários</td>
+          <td class="status actions"><a class="reserve-btn" href="mailto:tatiengpro@gmail.com?subject=Contribui%C3%A7%C3%A3o%20-%20Transfer%C3%AAncia&body=Olá%2C%0A%0AGostaria%20de%20contribuir%20por%20transfer%C3%AAncia.%20Por%20favor%20informem%20dados%20para%20PIX/Transfer%C3%AAncia.%0A%0Cordialmente%2C%0A%5BNome%5D">Reservar</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">Para marcar um item como comprado/reservado de forma definitiva (visível a todos), edite o arquivo <code>lista-de-presentes.md</code> e atualize a coluna "Status" (ou entre em contato com os organizadores).</p>
+
+    <p style="margin-top:18px;"><a class="button" href="index.html">Voltar ao início</a></p>
+  </main>
+</body>
+</html>
