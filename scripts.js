@@ -133,7 +133,14 @@
   // COUNTDOWN
   function initCountdown(targetISO){
     if(!targetISO) return null;
-    const target = new Date(targetISO);
+    // Parse target ISO. If no timezone is provided, assume America/Sao_Paulo (UTC-3 standard; DST not considered here).
+    // To avoid differences across browsers interpreting a bare ISO as UTC, we append -03:00 when missing.
+    let iso = targetISO;
+    if(!/([zZ]|[+-]\d{2}:?\d{2})$/.test(targetISO)){
+      iso = targetISO + '-03:00';
+    }
+    const target = new Date(iso);
+
     const daysEl = document.getElementById('cd-days');
     const hoursEl = document.getElementById('cd-hours');
     const minsEl = document.getElementById('cd-minutes');
@@ -171,7 +178,7 @@
     const stopParticles = startParticles();
 
     // start countdown for wedding date
-    // keep in sync with other pages by using same target
+    // keep in sync with other pages by using same target (assume Brasil timezone when missing)
     try{ initCountdown('2027-03-06T00:00:00'); }catch(e){ /* ignore */ }
 
     // stop producing petals after 45s to preserve perf
