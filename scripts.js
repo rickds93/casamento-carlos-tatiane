@@ -131,15 +131,36 @@
   }
 
   // COUNTDOWN
+  function parseISOAsSaoPaulo(isoStr){
+    // If string already has timezone/UTC marker, let Date parse it
+    if(/([zZ]|[+-]\d{2}:?\d{2})$/.test(isoStr)){
+      const d = new Date(isoStr);
+      if(!isNaN(d.getTime())) return d;
+    }
+    // Try to parse YYYY-MM-DDTHH:MM:SS (optional seconds)
+    const m = isoStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?$/);
+    if(!m) return new Date(isoStr); // fallback to native parsing
+
+    const year = parseInt(m[1],10);
+    const month = parseInt(m[2],10) - 1;
+    const day = parseInt(m[3],10);
+    const hour = parseInt(m[4],10);
+    const minute = parseInt(m[5],10);
+    const second = parseInt(m[6] || '0',10);
+
+    // Build Date as if the time were in America/Sao_Paulo (UTC-3) by creating a UTC timestamp and subtracting 3 hours
+    const utcMillis = Date.UTC(year, month, day, hour, minute, second);
+    const spMillis = utcMillis - (3 * 60 * 60 * 1000);
+    return new Date(spMillis);
+  }
+
   function initCountdown(targetISO){
     if(!targetISO) return null;
-    // Parse target ISO. If no timezone is provided, assume America/Sao_Paulo (UTC-3 standard; DST not considered here).
-    // To avoid differences across browsers interpreting a bare ISO as UTC, we append -03:00 when missing.
-    let iso = targetISO;
-    if(!/([zZ]|[+-]\d{2}:?\d{2})$/.test(targetISO)){
-      iso = targetISO + '-03:00';
+    let target = parseISOAsSaoPaulo(targetISO);
+    if(isNaN(target.getTime())){
+      // final fallback: try appending -03:00 and parse
+      try{ target = new Date(targetISO + '-03:00'); }catch(e){ console.error('countdown: invalid date', targetISO); return null; }
     }
-    const target = new Date(iso);
 
     const daysEl = document.getElementById('cd-days');
     const hoursEl = document.getElementById('cd-hours');
@@ -150,7 +171,7 @@
 
     function update(){
       const now = new Date();
-      let diff = Math.max(0, target - now);
+      let diff = Math.max(0, target.getTime() - now.getTime());
       const days = Math.floor(diff / (1000*60*60*24));
       diff -= days * (1000*60*60*24);
       const hours = Math.floor(diff / (1000*60*60));
@@ -163,7 +184,7 @@
       if(minsEl) minsEl.textContent = String(minutes).padStart(2,'0');
       if(secsEl) secsEl.textContent = String(seconds).padStart(2,'0');
       if(msgEl){
-        if(target - now <= 0){ msgEl.textContent = 'O grande dia chegou — vamos celebrar!'; }
+        if(target.getTime() - now.getTime() <= 0){ msgEl.textContent = 'O grande dia chegou — vamos celebrar!'; }
         else { msgEl.textContent = ''; }
       }
     }
