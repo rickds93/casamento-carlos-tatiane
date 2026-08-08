@@ -1,7 +1,8 @@
-/* scripts.js — entrance animations + SVG petals + particles
+/* scripts.js — entrance animations + SVG petals + particles + countdown
    - Staggered entrance using [data-anim]
    - Generates falling SVG petals in #petals
    - Renders light background particles on #particles-canvas
+   - Countdown initializer: updates elements with ids cd-days, cd-hours, cd-minutes, cd-seconds and cd-message
    - Respects prefers-reduced-motion and low-device heuristics
 */
 (function(){
@@ -129,11 +130,49 @@
     return ()=>{ cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
   }
 
+  // COUNTDOWN
+  function initCountdown(targetISO){
+    if(!targetISO) return null;
+    const target = new Date(targetISO);
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-minutes');
+    const secsEl = document.getElementById('cd-seconds');
+    const msgEl = document.getElementById('cd-message');
+    if(!daysEl && !hoursEl && !minsEl && !secsEl) return null;
+
+    function update(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+      const minutes = Math.floor(diff / (1000*60));
+      diff -= minutes * (1000*60);
+      const seconds = Math.floor(diff / 1000);
+      if(daysEl) daysEl.textContent = days;
+      if(hoursEl) hoursEl.textContent = String(hours).padStart(2,'0');
+      if(minsEl) minsEl.textContent = String(minutes).padStart(2,'0');
+      if(secsEl) secsEl.textContent = String(seconds).padStart(2,'0');
+      if(msgEl){
+        if(target - now <= 0){ msgEl.textContent = 'O grande dia chegou — vamos celebrar!'; }
+        else { msgEl.textContent = ''; }
+      }
+    }
+    update();
+    return setInterval(update, 1000);
+  }
+
   // INIT
   window.addEventListener('load', ()=>{
     runEntrance();
     const petalsInterval = startPetals();
     const stopParticles = startParticles();
+
+    // start countdown for wedding date
+    // keep in sync with other pages by using same target
+    try{ initCountdown('2027-03-06T00:00:00'); }catch(e){ /* ignore */ }
 
     // stop producing petals after 45s to preserve perf
     if(petalsInterval) setTimeout(()=> clearInterval(petalsInterval), 45000);
