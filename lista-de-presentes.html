@@ -18,6 +18,9 @@
     .countdown .number{ font-family:'Cormorant Garamond', serif; font-size:28px; color:var(--text); font-weight:700; }
     .countdown .label{ font-size:12px; color:var(--text); margin-top:4px; }
 
+    /* Make sections stack vertically (override .wrap flex on index) */
+    .wrap.gifts-wrap{ display:block; align-items:stretch; justify-content:flex-start; }
+
     /* Sections stacked vertically */
     section.category{ margin-top:28px; display:block; width:100%; }
     section.category + section.category{ margin-top:22px; }
