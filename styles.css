@@ -88,6 +88,20 @@ h1,h2,p,blockquote{margin:0}
   font-size:18px;
   opacity:0; transform:translateY(8px);
 }
+/* Couple name styling: Cormorant Garamond, pink text with golden border */
+.names{
+  font-family: 'Cormorant Garamond', serif;
+  font-size:36px;
+  color:var(--rose-gold);
+  border:2px solid #D4AF37; /* gold */
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:10px;
+  background:transparent;
+  letter-spacing:0.6px;
+  opacity:0; transform:translateY(8px) scale(.99);
+}
+
 .button{
   display:inline-block;
   margin-top:26px;
@@ -201,4 +215,5 @@ h1,h2,p,blockquote{margin:0}
   .countdown-inner{ gap:12px; }
   .countdown .number{ font-size:20px; }
   .button-group{ gap:10px; flex-direction:column; }
+  .names{ font-size:22px; padding:6px 10px; }
 }
