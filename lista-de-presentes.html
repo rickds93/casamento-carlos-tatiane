@@ -12,12 +12,12 @@
     header .inner{ max-width:980px; margin:0 auto; text-align:center; }
     header h1{ font-family: 'Cormorant Garamond', serif; font-size:28px; margin:6px 0; color:var(--text); }
 
-    /* Match index countdown structure and spacing (countdown removed from this page) */
-    .countdown{ margin-top:12px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
-    .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
-    .countdown-unit{ display:flex; flex-direction:column; align-items:center; }
-    .countdown .number{ font-family:'Cormorant Garamond', serif; font-size:28px; color:var(--text); font-weight:700; }
-    .countdown .label{ font-size:12px; color:var(--text); margin-top:4px; }
+    /* Countdown styles (horizontal, matching index) */
+    .countdown{ display:flex; gap:12px; justify-content:center; align-items:center; margin-top:8px; }
+    .countdown-inner{ display:flex; gap:12px; align-items:center; justify-content:center; }
+    .countdown-unit{ text-align:center; }
+    .countdown .number{ font-size:20px; font-weight:700; color:var(--text); }
+    .countdown .label{ font-size:11px; color:var(--text); }
 
     /* Make sections stack vertically (override .wrap flex on index) */
     .wrap.gifts-wrap{ display:block; align-items:stretch; justify-content:flex-start; }
@@ -58,7 +58,16 @@
   <header>
     <div class="inner">
       <h1>Carlos Alexandre &amp; Tatiane</h1>
-      <!-- Countdown removed on this page as requested -->
+      <!-- Horizontal countdown matching index page -->
+      <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-atomic="true">
+        <div class="countdown-inner">
+          <div class="countdown-unit"><span class="number" id="cd-days">0</span><span class="label">dias</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-hours">0</span><span class="label">horas</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-minutes">0</span><span class="label">min</span></div>
+          <div class="countdown-unit"><span class="number" id="cd-seconds">0</span><span class="label">seg</span></div>
+        </div>
+        <div class="countdown-message" id="cd-message" aria-hidden="true"></div>
+      </div>
     </div>
   </header>
 
