@@ -123,6 +123,12 @@ h1,h2,p,blockquote{margin:0}
   margin-top:18px;
 }
 
+/* Make buttons visible when the group/container is animated (fix for missing .animate-in on anchors) */
+.button-group.animated .button{
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* Countdown styles */
 .countdown{ margin-top:18px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
 .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
