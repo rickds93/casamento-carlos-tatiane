@@ -12,7 +12,7 @@
     header .inner{ max-width:980px; margin:0 auto; text-align:center; }
     header h1{ font-family: 'Cormorant Garamond', serif; font-size:28px; margin:6px 0; color:var(--text); }
 
-    /* Match index countdown structure and spacing */
+    /* Match index countdown structure and spacing (countdown removed from this page) */
     .countdown{ margin-top:12px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
     .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
     .countdown-unit{ display:flex; flex-direction:column; align-items:center; }
@@ -58,18 +58,7 @@
   <header>
     <div class="inner">
       <h1>Carlos Alexandre &amp; Tatiane</h1>
-      <div>
-        <!-- Countdown: use same markup as index -->
-        <div class="countdown" id="countdown" aria-live="polite" role="timer" aria-atomic="true">
-        <div class="countdown-inner">
-          <div class="countdown-unit"><span class="number" id="cd-days">0</span><span class="label">dias</span></div>
-          <div class="countdown-unit"><span class="number" id="cd-hours">0</span><span class="label">horas</span></div>
-          <div class="countdown-unit"><span class="number" id="cd-minutes">0</span><span class="label">min</span></div>
-          <div class="countdown-unit"><span class="number" id="cd-seconds">0</span><span class="label">seg</span></div>
-        </div>
-        <div class="countdown-message" id="cd-message" aria-hidden="true"></div>
-      </div>
-      </div>
+      <!-- Countdown removed on this page as requested -->
     </div>
   </header>
 
@@ -251,5 +240,7 @@
 
     });
   </script>
+
+  <script src="scripts.js" defer></script>
 </body>
 </html>
