@@ -11,10 +11,12 @@
     header{ position:sticky; top:0; background:var(--white); padding:18px 12px; border-bottom:1px solid rgba(0,0,0,0.04); z-index:50; box-shadow:0 6px 18px rgba(42,42,42,0.04); }
     header .inner{ max-width:980px; margin:0 auto; text-align:center; }
     header h1{ font-family: 'Cormorant Garamond', serif; font-size:28px; margin:6px 0; color:var(--text); }
-    .countdown{ display:flex; gap:12px; justify-content:center; align-items:center; margin-top:8px; }
-    .countdown .unit{ text-align:center; }
-    .countdown .number{ font-size:20px; font-weight:700; color:var(--text); }
-    .countdown .label{ font-size:11px; color:var(--text); }
+    /* Match index countdown structure and spacing */
+    .countdown{ margin-top:12px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+    .countdown-inner{ display:flex; gap:18px; align-items:center; justify-content:center; }
+    .countdown-unit{ display:flex; flex-direction:column; align-items:center; }
+    .countdown .number{ font-family:'Cormorant Garamond', serif; font-size:28px; color:var(--text); font-weight:700; }
+    .countdown .label{ font-size:12px; color:var(--text); margin-top:4px; }
 
     /* Sections stacked vertically */
     section.category{ margin-top:28px; display:block; width:100%; }
@@ -28,14 +30,14 @@
     @media(max-width:720px){
       header{ padding:14px 10px; }
       header h1{ font-size:22px; }
-      .countdown{ gap:10px; }
+      .countdown-inner{ gap:10px; }
       .countdown .number{ font-size:16px; }
     }
 
     @media(max-width:480px){
       header{ padding:10px 8px; }
       header h1{ font-size:18px; margin:4px 0; }
-      .countdown{ gap:8px; }
+      .countdown-inner{ gap:8px; }
       .countdown .number{ font-size:14px; }
       .gifts-wrap{ padding-top:10px; }
     }
@@ -50,13 +52,16 @@
     <div class="inner">
       <h1>Carlos Alexandre &amp; Tatiane</h1>
       <div>
-        <div id="countdown" class="countdown" role="timer" aria-live="polite">
-          <div class="unit"><div class="number" id="cd-days">0</div><div class="label">dias</div></div>
-          <div class="unit"><div class="number" id="cd-hours">0</div><div class="label">horas</div></div>
-          <div class="unit"><div class="number" id="cd-minutes">0</div><div class="label">min</div></div>
-          <div class="unit"><div class="number" id="cd-seconds">0</div><div class="label">seg</div></div>
+        <!-- Countdown: use same markup as index -->
+        <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-atomic="true" data-anim="7">
+          <div class="countdown-inner">
+            <div class="countdown-unit"><span class="number" id="cd-days">0</span><span class="label">dias</span></div>
+            <div class="countdown-unit"><span class="number" id="cd-hours">0</span><span class="label">horas</span></div>
+            <div class="countdown-unit"><span class="number" id="cd-minutes">0</span><span class="label">min</span></div>
+            <div class="countdown-unit"><span class="number" id="cd-seconds">0</span><span class="label">seg</span></div>
+          </div>
+          <div class="countdown-message" id="cd-message" aria-hidden="true"></div>
         </div>
-        <div id="cd-message" style="margin-top:8px; color:var(--text);"></div>
       </div>
     </div>
   </header>
@@ -178,41 +183,9 @@
       </table>
     </section>
 
+    <p class="note">Para marcar um item como reservado/comprado, entre em contato com os organizadores (tatiengpro@gmail.com) ou edite o arquivo <code>lista-de-presentes.md</code> no repositório.</p>
   </main>
 
-  <script>
-    (function(){
-      // Countdown to wedding date (06 Mar 2027, local time)
-      const target = new Date('2027-03-06T00:00:00');
-      const daysEl = document.getElementById('cd-days');
-      const hoursEl = document.getElementById('cd-hours');
-      const minsEl = document.getElementById('cd-minutes');
-      const secsEl = document.getElementById('cd-seconds');
-      const msgEl = document.getElementById('cd-message');
-
-      function update(){
-        const now = new Date();
-        let diff = Math.max(0, target - now);
-        const days = Math.floor(diff / (1000*60*60*24));
-        diff -= days * (1000*60*60*24);
-        const hours = Math.floor(diff / (1000*60*60));
-        diff -= hours * (1000*60*60);
-        const minutes = Math.floor(diff / (1000*60));
-        diff -= minutes * (1000*60);
-        const seconds = Math.floor(diff / 1000);
-        daysEl.textContent = days;
-        hoursEl.textContent = String(hours).padStart(2,'0');
-        minsEl.textContent = String(minutes).padStart(2,'0');
-        secsEl.textContent = String(seconds).padStart(2,'0');
-        if(target - now <= 0){
-          msgEl.textContent = 'O grande dia chegou — vamos celebrar!';
-        } else {
-          msgEl.textContent = '';
-        }
-      }
-      update();
-      setInterval(update, 1000);
-    })();
-  </script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
