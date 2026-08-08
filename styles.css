@@ -65,7 +65,7 @@ h1,h2,p,blockquote{margin:0}
   opacity:0; transform:translateY(8px) scale(.99);
 }
 .amp{
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size:86px;
   margin:16px 0;
   color:var(--rose-gold);
