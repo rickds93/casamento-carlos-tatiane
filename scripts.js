@@ -148,9 +148,9 @@
     const minute = parseInt(m[5],10);
     const second = parseInt(m[6] || '0',10);
 
-    // Build Date as if the time were in America/Sao_Paulo (UTC-3) by creating a UTC timestamp and subtracting 3 hours
+    // Build Date as if the time were in America/Sao_Paulo (UTC-3) by creating a UTC timestamp and adding 3 hours
     const utcMillis = Date.UTC(year, month, day, hour, minute, second);
-    const spMillis = utcMillis - (3 * 60 * 60 * 1000);
+    const spMillis = utcMillis + (3 * 60 * 60 * 1000);
     return new Date(spMillis);
   }
 
