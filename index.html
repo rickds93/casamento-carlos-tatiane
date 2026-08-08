@@ -6,7 +6,11 @@
   <title>Carlos &amp; Tatiane — 06 Março 2027</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <style>
+    /* Force buttons side-by-side on index page */
+    .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center; justify-content:center; }
+    @media(max-width:480px){ .button-group{ gap:8px; } }
+  </style>
 </head>
 <body>
   <!-- Particles canvas (background) -->
@@ -18,13 +22,13 @@
     <section class="invite" id="invite">
       <div class="divider" data-anim="1"></div>
 
-      <h2 class="small" id="name1" data-anim="2">Carlos Alexandre</h2>
-      <h1 class="amp" id="amp" data-anim="3">&amp;</h1>
-      <h2 class="small" id="name2" data-anim="4">Tatiane</h2>
+      <!-- Names on a single line -->
+      <h1 class="names" id="names" data-anim="2">Carlos Alexandre &amp; Tatiane</h1>
 
       <p class="date" id="date" data-anim="5">06 Março 2027</p>
 
-      <blockquote class="quote" id="quote" data-anim="6">“O amor é paciente, o amor é bondoso. Tudo suporta, tudo crê, tudo espera, tudo persevera.”</blockquote>
+      <!-- Quote split in two lines -->
+      <blockquote class="quote" id="quote" data-anim="6"><span>O amor</span><br><span>nunca falha.</span></blockquote>
 
       <!-- Countdown to event -->
       <div class="countdown" id="countdown" data-anim="7" aria-live="polite" role="timer" aria-atomic="true">
@@ -38,9 +42,9 @@
       </div>
 
       <!-- Buttons: Lista de Presentes + Confirmar Presença -->
-      <div class="button" data-anim="8">
+      <div class="button-group" data-anim="8">
         <a class="button" id="gift-button" href="lista-de-presentes.html">Lista de Presentes</a>
-        <a class="button" id="gift-button" href="confirmar-presenca.html">Confirmar Presença</a>
+        <a class="button secondary" id="rsvp-button" href="confirmar-presenca.html">Confirmar Presença</a>
       </div>
 
       <div class="divider" data-anim="9"></div>
