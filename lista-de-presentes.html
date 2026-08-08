@@ -6,16 +6,20 @@
   <title>Lista de Presentes — Carlos &amp; Tatiane</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .gifts-wrap{ max-width:980px; margin:0 auto; padding:40px 20px; }
-    header{ text-align:center; margin-bottom:28px; }
-    header h1{ font-family: 'Cormorant Garamond', serif; font-size:36px; margin:6px 0; color:var(--text); }
-    .countdown{ display:flex; gap:18px; justify-content:center; align-items:center; margin-top:12px; }
+    .gifts-wrap{ max-width:980px; margin:0 auto; padding:20px; }
+    /* Fixed header at top */
+    header{ position:sticky; top:0; background:var(--white); padding:18px 12px; border-bottom:1px solid rgba(0,0,0,0.04); z-index:50; box-shadow:0 6px 18px rgba(42,42,42,0.04); }
+    header .inner{ max-width:980px; margin:0 auto; text-align:center; }
+    header h1{ font-family: 'Cormorant Garamond', serif; font-size:28px; margin:6px 0; color:var(--text); }
+    .countdown{ display:flex; gap:12px; justify-content:center; align-items:center; margin-top:8px; }
     .countdown .unit{ text-align:center; }
-    .countdown .number{ font-size:28px; font-weight:700; color:var(--text); }
-    .countdown .label{ font-size:12px; color:var(--text); }
+    .countdown .number{ font-size:20px; font-weight:700; color:var(--text); }
+    .countdown .label{ font-size:11px; color:var(--text); }
 
-    section.category{ margin-top:28px; }
-    section.category h2{ font-size:20px; margin-bottom:10px; color:var(--text); }
+    /* Sections stacked vertically */
+    section.category{ margin-top:28px; display:block; width:100%; }
+    section.category + section.category{ margin-top:22px; }
+    section.category h2{ font-size:18px; margin-bottom:10px; color:var(--text); }
 
     table.gifts{ width:100%; border-collapse:collapse; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(42,42,42,0.04); }
     table.gifts thead th{ text-align:left; padding:12px 14px; background:linear-gradient(90deg, rgba(199,146,130,0.04), rgba(199,146,130,0.02)); font-weight:700; color:var(--text); }
@@ -23,11 +27,13 @@
     @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(42,42,42,0.04); } }
 
     .note{ margin-top:18px; color:var(--text); }
+    /* Give space below fixed header so content isn't hidden on very small viewports */
+    @media(max-width:480px){ .gifts-wrap{ padding-top:12px; } header{ padding:14px 8px; } }
   </style>
 </head>
 <body>
-  <main class="wrap gifts-wrap">
-    <header>
+  <header>
+    <div class="inner">
       <h1>Carlos Alexandre &amp; Tatiane</h1>
       <div>
         <div id="countdown" class="countdown" role="timer" aria-live="polite">
@@ -36,12 +42,14 @@
           <div class="unit"><div class="number" id="cd-minutes">0</div><div class="label">min</div></div>
           <div class="unit"><div class="number" id="cd-seconds">0</div><div class="label">seg</div></div>
         </div>
-        <div id="cd-message" style="margin-top:10px; color:var(--text);"></div>
+        <div id="cd-message" style="margin-top:8px; color:var(--text);"></div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section class="category">
-      <h2>❤️ Experiências do Casal</h2>
+  <main class="wrap gifts-wrap" role="main">
+    <section class="category" aria-labelledby="exp-title">
+      <h2 id="exp-title">❤️ Experiências do Casal</h2>
       <table class="gifts" aria-describedby="experiencias-desc">
         <thead>
           <tr><th>Presente</th><th style="width:120px">Valor</th><th>Descrição</th></tr>
@@ -85,8 +93,8 @@
       </table>
     </section>
 
-    <section class="category">
-      <h2>✈️ Lua de Mel e Viagens</h2>
+    <section class="category" aria-labelledby="viagem-title">
+      <h2 id="viagem-title">✈️ Lua de Mel e Viagens</h2>
       <table class="gifts">
         <thead>
           <tr><th>Presente</th><th style="width:120px">Valor</th><th>Descrição</th></tr>
@@ -133,8 +141,8 @@
       </table>
     </section>
 
-    <section class="category">
-      <h2>🏡 Projetos e Sonhos do Casal</h2>
+    <section class="category" aria-labelledby="projetos-title">
+      <h2 id="projetos-title">🏡 Projetos e Sonhos do Casal</h2>
       <table class="gifts">
         <thead>
           <tr><th>Presente</th><th style="width:120px">Valor</th><th>Descrição</th></tr>
