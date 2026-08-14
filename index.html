@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Force buttons side-by-side on index page */
-    .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center; justify-content:center; }
+    .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center !important; justify-content:center; }
     @media(max-width:480px){ .button-group{ gap:8px; } }
   </style>
 </head>
@@ -17,6 +17,9 @@
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
   <!-- Petals container -->
   <div id="petals" aria-hidden="true"></div>
+
+  <!-- Background overlay to improve text contrast over the photo -->
+  <div class="page-bg-overlay" aria-hidden="true"></div>
 
   <main class="wrap">
     <section class="invite" id="invite">
