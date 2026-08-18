@@ -32,7 +32,7 @@
     /* Section content (collapsible) */
     .section-content{ overflow:hidden; max-height:0; transition:max-height .36s ease; }
     section.category.open .section-content{ /* when open we'll set inline max-height via JS */ }
-    table.gifts{ width:100%; border-collapse:collapse; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(42,42,42,0.04); margin-top:12px; }
+    table.gifts{ width:100%; border-collapse:collapse; background:rgba(255,255,255,0.1); border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(42,42,42,0.04); margin-top:12px; backdrop-filter:blur(8px); }
     table.gifts thead th{ text-align:left; padding:12px 14px; background:linear-gradient(90deg, rgba(199,146,130,0.04), rgba(199,146,130,0.02)); font-weight:700; color:var(--text); }
     table.gifts tbody td{ padding:12px 14px; border-top:1px solid rgba(0,0,0,0.04); color:var(--text); vertical-align:top; }
 
@@ -51,7 +51,7 @@
       .gifts-wrap{ padding-top:10px; }
     }
 
-    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; background:var(--white); box-shadow:0 2px 8px rgba(42,42,42,0.06); } table.gifts tbody tr td:first-child::before{ content:attr(data-label); font-weight:700; display:block; margin-bottom:4px; color:var(--rose-gold); } }
+    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; background:rgba(255,255,255,0.1); box-shadow:0 2px 8px rgba(42,42,42,0.06); } table.gifts tbody tr td:first-child::before{ content:attr(data-label); font-weight:700; display:block; margin-bottom:4px; color:var(--rose-gold); } }
 
   </style>
 </head>
@@ -90,7 +90,7 @@
             <tr>
               <td data-label="Presente">💰 Um brinde à nossa história</td>
               <td data-label="Valor">R$ 180</td>
-              <td data-label="Descri��ão">Para levantarmos nossas taças e celebrarmos todas as pessoas que fizeram parte da nossa caminhada.</td>
+              <td data-label="Descrição">Para levantarmos nossas taças e celebrarmos todas as pessoas que fizeram parte da nossa caminhada.</td>
             </tr>
             <tr>
               <td data-label="Presente">💑 Uma noite só nossa</td>
