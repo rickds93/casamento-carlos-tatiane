@@ -213,4 +213,7 @@ h1,h2,p,blockquote{margin:0}
   .countdown .number{ font-size:20px; }
   .button-group{ gap:10px; flex-direction:column; }
   .names{ font-size:22px; padding:6px 10px; }
+  /* Petals visible on mobile - no display:none here */
+  #petals{ display:block; }
+  #particles-canvas{ display:block; }
 }
