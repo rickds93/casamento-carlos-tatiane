@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles (updated: use background image from root)
+/* styles.css — Wedding invitation styles (updated: remove card background, text only)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -38,15 +38,15 @@ body{
   z-index:2;
 }
 .invite{
-  background:rgba(255,255,255,0.1);
+  background:transparent;
   max-width:760px;
   width:100%;
   padding:56px 48px;
-  border-radius:16px;
-  box-shadow:0 8px 30px rgba(42,42,42,0.08);
+  border-radius:0;
+  box-shadow:none;
   text-align:center;
-  border:1px solid rgba(199,146,130,0.08);
-  backdrop-filter:blur(8px);
+  border:none;
+  backdrop-filter:none;
   /* initial hidden state for entrance animations */
   opacity:0;
   transform:scale(.98);
