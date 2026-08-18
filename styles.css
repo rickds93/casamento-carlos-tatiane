@@ -31,11 +31,12 @@ body{
 .wrap{
   min-height:100vh;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
   padding:48px 24px;
   position:relative;
   z-index:2;
+  padding-top:80px;
 }
 .invite{
   background:transparent;
