@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles (updated: remove card background, text only)
+/* styles.css — Wedding invitation styles (updated: add full-bleed background image support for index)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -129,11 +129,11 @@ h1,h2,p,blockquote{margin:0}
 
 /* Secondary button variant (Confirmar Presença) */
 .button.secondary{
-  background:transparent;
-  color:var(--rose-gold);
+  background:var(--rose-light);
+  color:var(--text);
   border:2px solid var(--rose-gold);
 }
-.button.secondary:hover{ background:linear-gradient(90deg, rgba(199,146,130,0.06), rgba(199,146,130,0.02)); }
+.button.secondary:hover{ background:linear-gradient(90deg,var(--rose-light),#fee9e9); box-shadow:0 6px 18px rgba(199,146,130,0.12); transform:scale(1.03); }
 
 /* Button group */
 .button-group{
