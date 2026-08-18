@@ -1,4 +1,4 @@
-/* styles.css — Wedding invitation styles (updated: add full-bleed background image support for index)
+/* styles.css — Wedding invitation styles (updated: use background image from root)
    Palette:
      --white: #FFFFFF;
      --rose-light: #FBEFF0;
@@ -21,8 +21,8 @@ body{
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  /* Index background image (place the file at assets/bg-index.jpg) */
-  background-image: url('assets/bg-index.jpg');
+  /* Background image from repository root */
+  background-image: url('IMG-20260809-WA0012.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
