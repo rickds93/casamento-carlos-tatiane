@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Force buttons side-by-side on index page */
-    .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center !important; justify-content:center; }
+    .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center; justify-content:center; }
     @media(max-width:480px){ .button-group{ gap:8px; } }
   </style>
 </head>
@@ -17,9 +17,6 @@
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
   <!-- Petals container -->
   <div id="petals" aria-hidden="true"></div>
-
-  <!-- Background overlay to improve text contrast over the photo -->
-  <div class="page-bg-overlay" aria-hidden="true"></div>
 
   <main class="wrap">
     <section class="invite" id="invite">
@@ -31,7 +28,7 @@
       <p class="date" id="date" data-anim="3">06 Março 2027</p>
 
       <!-- Quote split in two lines -->
-      <blockquote class="quote" id="quote" data-anim="4"><span>"O amor é paciente, o amor é bondoso.</span><br><span>Tudo suporta, tudo crê, tudo espera, tudo persevera."</span></blockquote>
+      <blockquote class="quote" id="quote" data-anim="4"><span>"Para que vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isto, e o Santo de Israel o criou."</span><br><span>Isaías 41:20</span></blockquote>
 
       <!-- Countdown to event -->
       <div class="countdown" id="countdown" data-anim="5" aria-live="polite" role="timer" aria-atomic="true">
