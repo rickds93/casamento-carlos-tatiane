@@ -26,6 +26,7 @@
     section.category{ margin-top:28px; display:block; width:100%; }
     section.category + section.category{ margin-top:22px; }
     section.category h2{ font-size:18px; margin:0; padding:12px 8px; color:var(--text); cursor:pointer; background:linear-gradient(90deg, rgba(199,146,130,0.02), rgba(199,146,130,0.01)); border-radius:8px; }
+    section.category h2:hover{ background:linear-gradient(90deg, rgba(199,146,130,0.06), rgba(199,146,130,0.04)); }
     section.category h2:focus{ outline:2px solid rgba(199,146,130,0.18); }
 
     /* Section content (collapsible) */
@@ -50,7 +51,7 @@
       .gifts-wrap{ padding-top:10px; }
     }
 
-    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(42,42,42,0.04); } }
+    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; background:var(--white); box-shadow:0 2px 8px rgba(42,42,42,0.06); } table.gifts tbody tr td:first-child::before{ content:attr(data-label); font-weight:700; display:block; margin-bottom:4px; color:var(--rose-gold); } }
 
   </style>
 </head>
@@ -73,116 +74,119 @@
 
   <main class="wrap gifts-wrap" role="main">
 
-    <section class="category" aria-labelledby="viagem-title">
-      <h2 id="viagem-title">✈️ Lua de Mel</h2>
-      <div class="section-content">
-        <table class="gifts" aria-describedby="viagem-desc">
+    <section class="category open" aria-labelledby="presentes-title">
+      <h2 id="presentes-title">💝 Nossos Presentes</h2>
+      <div class="section-content" style="max-height:none;">
+        <table class="gifts">
           <thead>
-            <tr><th>Presente</th><th style="width:160px">Valor</th></tr>
+            <tr><th>Presente</th><th style="width:160px">Valor</th><th>Descrição</th></tr>
           </thead>
           <tbody>
-            <tr><td>Café da manhã especial na viagem</td><td>R$ 50</td></tr>
-            <tr><td>Lembrança do destino</td><td>R$ 80</td></tr>
-            <tr><td>Passeio turístico</td><td>R$ 150</td></tr>
-            <tr><td>Jantar romântico</td><td>R$ 250</td></tr>
-            <tr><td>Passeio de barco</td><td>R$ 350</td></tr>
-            <tr><td>Passeio de buggy</td><td>R$ 450</td></tr>
-            <tr><td>Experiência gastronômica</td><td>R$ 550</td></tr>
-            <tr><td>Diária em hotel</td><td>R$ 700</td></tr>
-            <tr><td>Passeio exclusivo</td><td>R$ 850</td></tr>
-            <tr><td>Cota para passagem aérea</td><td>R$ 1.000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="category" aria-labelledby="exp-title">
-      <h2 id="exp-title">❤️ Experiências do Casal</h2>
-      <div class="section-content">
-        <table class="gifts" aria-describedby="exp-desc">
-          <thead>
-            <tr><th>Presente</th><th style="width:160px">Valor</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Sorvete para dois</td><td>R$ 20</td></tr>
-            <tr><td>Café especial</td><td>R$ 50</td></tr>
-            <tr><td>Noite de pizza</td><td>R$ 80</td></tr>
-            <tr><td>Cinema para dois</td><td>R$ 120</td></tr>
-            <tr><td>Piquenique romântico</td><td>R$ 180</td></tr>
-            <tr><td>Jantar especial</td><td>R$ 250</td></tr>
-            <tr><td>Massagem para o casal</td><td>R$ 350</td></tr>
-            <tr><td>Dia de SPA</td><td>R$ 500</td></tr>
-            <tr><td>Passeio de barco</td><td>R$ 750</td></tr>
-            <tr><td>Experiência surpresa</td><td>R$ 1.000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="category" aria-labelledby="festa-title">
-      <h2 id="festa-title">🎉 Festa &amp; Celebração</h2>
-      <div class="section-content">
-        <table class="gifts" aria-describedby="festa-desc">
-          <thead>
-            <tr><th>Presente</th><th style="width:160px">Valor</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Nosso primeiro brinde</td><td>R$ 20</td></tr>
-            <tr><td>Doces para comemorar</td><td>R$ 50</td></tr>
-            <tr><td>Petiscos para uma noite especial</td><td>R$ 80</td></tr>
-            <tr><td>Drinks do casal</td><td>R$ 120</td></tr>
-            <tr><td>Noite de churrasco</td><td>R$ 180</td></tr>
-            <tr><td>Jantar com amigos</td><td>R$ 250</td></tr>
-            <tr><td>Festa de aniversário</td><td>R$ 350</td></tr>
-            <tr><td>Comemoração de aniversário de casamento</td><td>R$ 500</td></tr>
-            <tr><td>Festa especial do casal</td><td>R$ 750</td></tr>
-            <tr><td>Grande celebração</td><td>R$ 1.000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="category" aria-labelledby="aventuras-title">
-      <h2 id="aventuras-title">🌎 Aventuras &amp; Sonhos</h2>
-      <div class="section-content">
-        <table class="gifts" aria-describedby="aventuras-desc">
-          <thead>
-            <tr><th>Presente</th><th style="width:160px">Valor</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Passeio de bicicleta</td><td>R$ 20</td></tr>
-            <tr><td>Trilha do casal</td><td>R$ 50</td></tr>
-            <tr><td>Pôr do sol especial</td><td>R$ 100</td></tr>
-            <tr><td>Passeio de aventura</td><td>R$ 150</td></tr>
-            <tr><td>Parque de diversões</td><td>R$ 200</td></tr>
-            <tr><td>Parque aquático</td><td>R$ 300</td></tr>
-            <tr><td>Passeio de caiaque</td><td>R$ 400</td></tr>
-            <tr><td>Passeio de balão</td><td>R$ 600</td></tr>
-            <tr><td>Experiência radical</td><td>R$ 800</td></tr>
-            <tr><td>Aventura dos sonhos</td><td>R$ 1.000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="category" aria-labelledby="futuro-title">
-      <h2 id="futuro-title">💕 Nosso Futuro</h2>
-      <div class="section-content">
-        <table class="gifts" aria-describedby="futuro-desc">
-          <thead>
-            <tr><th>Presente</th><th style="width:160px">Valor</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Nosso primeiro sonho juntos</td><td>R$ 20</td></tr>
-            <tr><td>Um pequeno passo para nosso futuro</td><td>R$ 50</td></tr>
-            <tr><td>Construindo nossas memórias</td><td>R$ 100</td></tr>
-            <tr><td>Nosso próximo passeio</td><td>R$ 150</td></tr>
-            <tr><td>Um novo projeto do casal</td><td>R$ 200</td></tr>
-            <tr><td>Fundo para nossa próxima viagem</td><td>R$ 300</td></tr>
-            <tr><td>Nosso próximo grande sonho</td><td>R$ 400</td></tr>
-            <tr><td>Projeto especial do casal</td><td>R$ 600</td></tr>
-            <tr><td>Realização de um grande sonho</td><td>R$ 800</td></tr>
-            <tr><td>Contribuição para nosso futuro</td><td>R$ 1.000</td></tr>
+            <tr>
+              <td data-label="Presente">💕 Nosso primeiro café como casados</td>
+              <td data-label="Valor">R$ 120</td>
+              <td data-label="Descrição">Uma pequena contribuição para começarmos essa nova fase com um café especial e muito amor.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">💰 Um brinde à nossa história</td>
+              <td data-label="Valor">R$ 180</td>
+              <td data-label="Descri��ão">Para levantarmos nossas taças e celebrarmos todas as pessoas que fizeram parte da nossa caminhada.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">💑 Uma noite só nossa</td>
+              <td data-label="Valor">R$ 250</td>
+              <td data-label="Descrição">Uma noite especial para desacelerar, conversar e aproveitar a companhia um do outro.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">📷 Memórias para guardar</td>
+              <td data-label="Valor">R$ 320</td>
+              <td data-label="Descrição">Uma contribuição para registrar momentos que queremos levar para a vida toda.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🚗 Nosso primeiro passeio</td>
+              <td data-label="Valor">R$ 150</td>
+              <td data-label="Descrição">Para transformar um dia comum em uma lembrança especial do início da nossa vida juntos.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🍽️ Um jantar inesquecível</td>
+              <td data-label="Valor">R$ 450</td>
+              <td data-label="Descrição">Para vivermos uma noite especial, com boa comida, conversa e muito carinho.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🎢 Um dia de aventura</td>
+              <td data-label="Valor">R$ 380</td>
+              <td data-label="Descrição">Uma ajuda para realizarmos uma experiência diferente e sair um pouco da rotina.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🏡 Nosso cantinho dos sonhos</td>
+              <td data-label="Valor">R$ 600</td>
+              <td data-label="Descrição">Uma contribuição para construirmos, aos poucos, o lar que imaginamos juntos.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🎁 Uma surpresa para nós dois</td>
+              <td data-label="Valor">R$ 275</td>
+              <td data-label="Descrição">Uma cota para escolhermos uma experiência inesperada e transformar o dia em uma memória.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">✈️ Uma viagem para recordar</td>
+              <td data-label="Valor">R$ 750</td>
+              <td data-label="Descrição">Uma contribuição para uma futura viagem que fará parte da nossa história.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🌅 Um pôr do sol especial</td>
+              <td data-label="Valor">R$ 200</td>
+              <td data-label="Descrição">Para aproveitarmos juntos um daqueles momentos simples que ficam para sempre na memória.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🌟 Nosso próximo grande sonho</td>
+              <td data-label="Valor">R$ 900</td>
+              <td data-label="Descrição">Uma contribuição para nos aproximar de um sonho que queremos realizar juntos.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🍴 Uma experiência gastronômica</td>
+              <td data-label="Valor">R$ 350</td>
+              <td data-label="Descrição">Para conhecer novos sabores e criar uma lembrança deliciosa a dois.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🏨 Um fim de semana inesquecível</td>
+              <td data-label="Valor">R$ 550</td>
+              <td data-label="Descrição">Uma ajuda para escaparmos da rotina e aproveitarmos alguns dias só nós dois.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">📚 Nosso álbum de memórias</td>
+              <td data-label="Valor">R$ 400</td>
+              <td data-label="Descrição">Para registrar e preservar momentos importantes dessa nova etapa da nossa história.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🎯 A aventura dos nossos sonhos</td>
+              <td data-label="Valor">R$ 1.000</td>
+              <td data-label="Descrição">Uma contribuição especial para realizarmos uma experiência que ficará marcada para sempre.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🧘 Um momento de tranquilidade</td>
+              <td data-label="Valor">R$ 300</td>
+              <td data-label="Descrição">Para reservarmos um tempo para descansar, respirar e simplesmente aproveitar nossa companhia.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🗺️ Nosso próximo destino</td>
+              <td data-label="Valor">R$ 680</td>
+              <td data-label="Descrição">Uma contribuição para ajudar a escolher e explorar um novo lugar juntos.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🏗️ Construindo nosso futuro</td>
+              <td data-label="Valor">R$ 850</td>
+              <td data-label="Descrição">Uma ajuda para transformar planos e sonhos em projetos reais para nossa vida a dois.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">💝 Um presente para nossa história</td>
+              <td data-label="Valor">R$ 1.000</td>
+              <td data-label="Descrição">Uma contribuição especial que fará parte dos primeiros capítulos da nossa vida como casal.</td>
+            </tr>
+            <tr>
+              <td data-label="Presente">🌈 Um sonho que você escolhe realizar</td>
+              <td data-label="Valor">Valor livre</td>
+              <td data-label="Descrição">Escolha o valor que desejar e faça parte de um dos sonhos que estamos construindo juntos.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -209,12 +213,14 @@
         const h2 = sec.querySelector('h2');
         const content = sec.querySelector('.section-content');
 
-        // Initialize collapsed
-        content.style.maxHeight = '0px';
-        content.setAttribute('aria-hidden', 'true');
+        // Initialize collapsed (unless section has 'open' class)
+        if(!sec.classList.contains('open')){
+          content.style.maxHeight = '0px';
+          content.setAttribute('aria-hidden', 'true');
+        }
         h2.setAttribute('tabindex', '0');
         h2.setAttribute('role', 'button');
-        h2.setAttribute('aria-expanded', 'false');
+        h2.setAttribute('aria-expanded', sec.classList.contains('open') ? 'true' : 'false');
 
         // toggle function
         function toggle(){
