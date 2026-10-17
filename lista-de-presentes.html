@@ -10,34 +10,107 @@
     header{ position:fixed; top:0; left:0; right:0; background:var(--white); padding:18px 12px; border-bottom:1px solid rgba(0,0,0,0.06); z-index:80; box-shadow:0 6px 18px rgba(42,42,42,0.06); }
     header .inner{ max-width:980px; margin:0 auto; text-align:center; }
     header h1{ font-family: 'Cormorant Garamond', serif; font-size:28px; margin:6px 0; color:var(--text); }
+
     .countdown{ display:flex; gap:12px; justify-content:center; align-items:center; margin-top:8px; }
     .countdown-inner{ display:flex; gap:12px; align-items:center; justify-content:center; }
     .countdown-unit{ text-align:center; }
     .countdown .number{ font-size:20px; font-weight:700; color:var(--text); }
     .countdown .label{ font-size:11px; color:var(--text); }
+
     .wrap.gifts-wrap{ display:block; align-items:stretch; justify-content:flex-start; }
     section.category{ margin-top:28px; display:block; width:100%; }
     section.category h2{ font-size:18px; margin:0; padding:12px 8px; color:var(--text); cursor:pointer; background:linear-gradient(90deg, rgba(199,146,130,0.02), rgba(199,146,130,0.01)); border-radius:8px; }
     section.category h2:hover{ background:linear-gradient(90deg, rgba(199,146,130,0.06), rgba(199,146,130,0.04)); }
     section.category h2:focus{ outline:2px solid rgba(199,146,130,0.18); }
+
     .section-content{ overflow:hidden; max-height:0; transition:max-height .36s ease; }
+
     table.gifts{ width:100%; border-collapse:collapse; background:rgba(255,255,255,0.1); border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(42,42,42,0.04); margin-top:12px; backdrop-filter: blur(2px); }
     table.gifts thead th{ text-align:left; padding:12px 14px; background:linear-gradient(90deg, rgba(199,146,130,0.04), rgba(199,146,130,0.02)); font-weight:700; color:var(--text); }
     table.gifts tbody td{ padding:12px 14px; border-top:1px solid rgba(0,0,0,0.04); color:var(--text); vertical-align:top; }
+
     .pix-actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .pix-btn{ appearance:none; border:1px solid var(--rose-gold); background:var(--rose-light); color:var(--text); border-radius:999px; padding:8px 12px; font:600 12px/1 'Montserrat', sans-serif; cursor:pointer; }
+    .pix-btn{
+      appearance:none;
+      border:1px solid var(--rose-gold);
+      background:var(--rose-light);
+      color:var(--text);
+      border-radius:999px;
+      padding:8px 12px;
+      font:600 12px/1 'Montserrat', sans-serif;
+      cursor:pointer;
+    }
     .pix-btn:hover{ filter:brightness(0.98); }
-    .pix-modal{ position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; z-index:120; padding:16px; }
+
+    .pix-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:120;
+      padding:16px;
+    }
     .pix-modal.open{ display:flex; }
-    .pix-modal-card{ width:min(420px, 100%); background:#fff; border-radius:12px; padding:16px; box-shadow:0 16px 32px rgba(0,0,0,.2); text-align:center; }
+    .pix-modal-card{
+      width:min(420px, 100%);
+      background:#fff;
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 16px 32px rgba(0,0,0,.2);
+      text-align:center;
+    }
     .pix-modal-card h3{ margin:0 0 8px; }
     .pix-modal-card p{ margin:0 0 12px; font-size:14px; }
-    .pix-modal-qr{ width:240px; height:240px; margin:0 auto 12px; border:1px dashed rgba(0,0,0,.2); border-radius:8px; display:flex; align-items:center; justify-content:center; padding:8px; background:#fafafa; }
+    .pix-modal-qr{
+      width:240px;
+      height:240px;
+      margin:0 auto 12px;
+      border:1px dashed rgba(0,0,0,.2);
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px;
+      background:#fafafa;
+    }
     .pix-modal-qr img{ max-width:100%; max-height:100%; }
     .pix-modal-actions{ display:flex; gap:8px; justify-content:center; }
-    @media(max-width:720px){ header{ padding:14px 10px; } header h1{ font-size:22px; } .countdown-inner{ gap:10px; } .countdown .number{ font-size:16px; } }
-    @media(max-width:480px){ header{ padding:10px 8px; } header h1{ font-size:18px; margin:4px 0; } .countdown-inner{ gap:8px; } .countdown .number{ font-size:14px; } .gifts-wrap{ padding-top:10px; } }
-    @media(max-width:720px){ table.gifts thead{ display:none; } table.gifts tbody td{ display:block; padding:10px; } table.gifts tbody tr{ margin-bottom:10px; display:block; border-radius:8px; overflow:hidden; border:1px solid rgba(0,0,0,0.04); } table.gifts tbody td::before{ content:attr(data-label); display:block; font-weight:700; margin-bottom:6px; color:var(--text); } }
+
+    @media(max-width:720px){
+      header{ padding:14px 10px; }
+      header h1{ font-size:22px; }
+      .countdown-inner{ gap:10px; }
+      .countdown .number{ font-size:16px; }
+    }
+
+    @media(max-width:480px){
+      header{ padding:10px 8px; }
+      header h1{ font-size:18px; margin:4px 0; }
+      .countdown-inner{ gap:8px; }
+      .countdown .number{ font-size:14px; }
+      .gifts-wrap{ padding-top:10px; }
+    }
+
+    @media(max-width:720px){
+      table.gifts thead{ display:none; }
+      table.gifts tbody td{ display:block; padding:10px; }
+      table.gifts tbody tr{
+        margin-bottom:10px;
+        display:block;
+        border-radius:8px;
+        overflow:hidden;
+        border:1px solid rgba(0,0,0,0.04);
+      }
+      table.gifts tbody td::before{
+        content:attr(data-label);
+        display:block;
+        font-weight:700;
+        margin-bottom:6px;
+        color:var(--text);
+      }
+    }
   </style>
 </head>
 <body>
@@ -65,24 +138,25 @@
             <tr><th>Presente</th><th style="width:160px">Valor</th><th>Descrição</th></tr>
           </thead>
           <tbody>
-            <tr data-gift-id="gift-02"><td data-label="Presente">💰 Um brinde à nossa história</td><td data-label="Valor">R$ 200</td><td data-label="Descrição">Para levantarmos nossas taças e celebrarmos todas as pessoas que fizeram parte da nossa caminhada.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-03"><td data-label="Presente">💑 Uma noite só nossa</td><td data-label="Valor">R$ 300</td><td data-label="Descrição">Uma noite especial para desacelerar, conversar e aproveitar a companhia um do outro.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-04"><td data-label="Presente">📷 Memórias para guardar</td><td data-label="Valor">R$ 200</td><td data-label="Descrição">Uma contribuição para registrar momentos que queremos levar para a vida toda.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-05"><td data-label="Presente">🚗 Nosso primeiro passeio</td><td data-label="Valor">R$ 300</td><td data-label="Descrição">Para transformar um dia comum em uma lembrança especial do início da nossa vida juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-06"><td data-label="Presente">🍽️ Um jantar inesquecível</td><td data-label="Valor">R$ 300</td><td data-label="Descrição">Para vivermos uma noite especial, com boa comida, conversa e muito carinho.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-01"><td data-label="Presente">💕 Nosso primeiro café como casados</td><td data-label="Valor">R$ 120</td><td data-label="Descrição">Uma pequena contribuição para começarmos essa nova fase com um café especial e muito amor.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-02"><td data-label="Presente">💰 Um brinde à nossa história</td><td data-label="Valor">R$ 180</td><td data-label="Descrição">Para levantarmos nossas taças e celebrarmos todas as pessoas que fizeram parte da nossa caminhada.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-03"><td data-label="Presente">💑 Uma noite só nossa</td><td data-label="Valor">R$ 250</td><td data-label="Descrição">Uma noite especial para desacelerar, conversar e aproveitar a companhia um do outro.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-04"><td data-label="Presente">📷 Memórias para guardar</td><td data-label="Valor">R$ 320</td><td data-label="Descrição">Uma contribuição para registrar momentos que queremos levar para a vida toda.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-05"><td data-label="Presente">🚗 Nosso primeiro passeio</td><td data-label="Valor">R$ 150</td><td data-label="Descrição">Para transformar um dia comum em uma lembrança especial do início da nossa vida juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-06"><td data-label="Presente">🍽️ Um jantar inesquecível</td><td data-label="Valor">R$ 450</td><td data-label="Descrição">Para vivermos uma noite especial, com boa comida, conversa e muito carinho.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-07"><td data-label="Presente">🎢 Um dia de aventura</td><td data-label="Valor">R$ 400</td><td data-label="Descrição">Uma ajuda para realizarmos uma experiência diferente e sair um pouco da rotina.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-08"><td data-label="Presente">🏡 Nosso cantinho dos sonhos</td><td data-label="Valor">R$ 500</td><td data-label="Descrição">Uma contribuição para construirmos, aos poucos, o lar que imaginamos juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-09"><td data-label="Presente">🎁 Uma surpresa para nós dois</td><td data-label="Valor">R$ 300</td><td data-label="Descrição">Uma cota para escolhermos uma experiência inesperada e transformar o dia em uma memória.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-10"><td data-label="Presente">✈️ Uma viagem para recordar</td><td data-label="Valor">R$ 1000</td><td data-label="Descrição">Uma contribuição para uma futura viagem que fará parte da nossa história.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-08"><td data-label="Presente">🏡 Nosso cantinho dos sonhos</td><td data-label="Valor">R$ 600</td><td data-label="Descrição">Uma contribuição para construirmos, aos poucos, o lar que imaginamos juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-09"><td data-label="Presente">🎁 Uma surpresa para nós dois</td><td data-label="Valor">R$ 275</td><td data-label="Descrição">Uma cota para escolhermos uma experiência inesperada e transformar o dia em uma memória.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-10"><td data-label="Presente">✈️ Uma viagem para recordar</td><td data-label="Valor">R$ 750</td><td data-label="Descrição">Uma contribuição para uma futura viagem que fará parte da nossa história.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-11"><td data-label="Presente">🌅 Um pôr do sol especial</td><td data-label="Valor">R$ 400</td><td data-label="Descrição">Para aproveitarmos juntos um daqueles momentos simples que ficam para sempre na memória.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-12"><td data-label="Presente">🌟 Nosso próximo grande sonho</td><td data-label="Valor">R$ 800</td><td data-label="Descrição">Uma contribuição para nos aproximar de um sonho que queremos realizar juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-12"><td data-label="Presente">🌟 Nosso próximo grande sonho</td><td data-label="Valor">R$ 900</td><td data-label="Descrição">Uma contribuição para nos aproximar de um sonho que queremos realizar juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-13"><td data-label="Presente">🍴 Uma experiência gastronômica</td><td data-label="Valor">R$ 400</td><td data-label="Descrição">Para conhecer novos sabores e criar uma lembrança deliciosa a dois.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-14"><td data-label="Presente">🏨 Um fim de semana inesquecível</td><td data-label="Valor">R$ 500</td><td data-label="Descrição">Uma ajuda para escaparmos da rotina e aproveitarmos alguns dias só nós dois.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-15"><td data-label="Presente">📚 Nosso álbum de memórias</td><td data-label="Valor">R$ 200</td><td data-label="Descrição">Para registrar e preservar momentos importantes dessa nova etapa da nossa história.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-14"><td data-label="Presente">🏨 Um fim de semana inesquecível</td><td data-label="Valor">R$ 550</td><td data-label="Descrição">Uma ajuda para escaparmos da rotina e aproveitarmos alguns dias só nós dois.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-15"><td data-label="Presente">📚 Nosso álbum de memórias</td><td data-label="Valor">R$ 400</td><td data-label="Descrição">Para registrar e preservar momentos importantes dessa nova etapa da nossa história.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-16"><td data-label="Presente">🎯 A aventura dos nossos sonhos</td><td data-label="Valor">R$ 1.000</td><td data-label="Descrição">Uma contribuição especial para realizarmos uma experiência que ficará marcada para sempre.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-17"><td data-label="Presente">🧘 Um momento de tranquilidade</td><td data-label="Valor">R$ 300</td><td data-label="Descrição">Para reservarmos um tempo para descansar, respirar e simplesmente aproveitar nossa companhia.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-18"><td data-label="Presente">🗺️ Nosso próximo destino</td><td data-label="Valor">R$ 500</td><td data-label="Descrição">Uma contribuição para ajudar a escolher e explorar um novo lugar juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
-            <tr data-gift-id="gift-19"><td data-label="Presente">🏗️ Construindo nosso futuro</td><td data-label="Valor">R$ 800</td><td data-label="Descrição">Uma ajuda para transformar planos e sonhos em projetos reais para nossa vida a dois.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-18"><td data-label="Presente">🗺️ Nosso próximo destino</td><td data-label="Valor">R$ 680</td><td data-label="Descrição">Uma contribuição para ajudar a escolher e explorar um novo lugar juntos.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
+            <tr data-gift-id="gift-19"><td data-label="Presente">🏗️ Construindo nosso futuro</td><td data-label="Valor">R$ 850</td><td data-label="Descrição">Uma ajuda para transformar planos e sonhos em projetos reais para nossa vida a dois.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
             <tr data-gift-id="gift-20"><td data-label="Presente">💝 Um presente para nossa história</td><td data-label="Valor">R$ 1.000</td><td data-label="Descrição">Uma contribuição especial que fará parte dos primeiros capítulos da nossa vida como casal.<div class="pix-actions"><button class="pix-btn js-copy-pix" type="button">Copiar PIX</button><button class="pix-btn js-open-qr" type="button">Abrir QR Code PIX</button></div></td></tr>
           </tbody>
         </table>
@@ -95,28 +169,36 @@
       <h3 id="pix-modal-title">QR Code PIX</h3>
       <p id="pix-modal-text">Este presente ainda não possui QR Code cadastrado.</p>
       <div class="pix-modal-qr" id="pix-modal-qr">Sem QR Code</div>
-      <div class="pix-modal-actions"><button class="pix-btn" type="button" id="pix-modal-close">Fechar</button></div>
+      <div class="pix-modal-actions">
+        <button class="pix-btn" type="button" id="pix-modal-close">Fechar</button>
+      </div>
     </div>
   </div>
 
   <script>
-    // Dados de PIX por presente (id -> { emv, qr })
     const PIX_200 = { emv: '00020126690014BR.GOV.BCB.PIX0114+55419990005490229Casamento Alexandre & Tatiane5204000053039865406200.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***6304DDC6', qr: '200.jpeg' };
     const PIX_300 = { emv: '00020126690014BR.GOV.BCB.PIX0114+55419990005490229Casamento Alexandre & Tatiane5204000053039865406300.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***63048476', qr: '300.jpeg' };
+    const PIX_400 = { emv: '00020126700014BR.GOV.BCB.PIX0114+55419990005490230Casamento Alexandre & Tatiane 5204000053039865406400.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***6304BDA8', qr: '400.jpeg' };
+
     const PIX_DATA = {
       'gift-02': PIX_200, // Um brinde à nossa história
       'gift-04': PIX_200, // Memórias para guardar
-      'gift-15': PIX_200, // Nosso álbum de memórias
+
       'gift-03': PIX_300, // Uma noite só nossa
       'gift-05': PIX_300, // Nosso primeiro passeio
       'gift-06': PIX_300, // Um jantar inesquecível
       'gift-09': PIX_300, // Uma surpresa para nós dois
-      'gift-17': PIX_300  // Um momento de tranquilidade
+      'gift-17': PIX_300, // Um momento de tranquilidade
+
+      'gift-07': PIX_400, // Um dia de aventura
+      'gift-11': PIX_400, // Um pôr do sol especial
+      'gift-13': PIX_400  // Uma experiência gastronômica
     };
 
     document.addEventListener('DOMContentLoaded', function(){
       const header = document.querySelector('header');
       const main = document.querySelector('main.wrap');
+
       function adjustMainPadding(){
         const h = header.offsetHeight || 80;
         main.style.paddingTop = (h + 18) + 'px';
@@ -124,10 +206,11 @@
       adjustMainPadding();
       window.addEventListener('resize', adjustMainPadding);
 
-      // Accordion
-      document.querySelectorAll('section.category').forEach(sec => {
+      const sections = document.querySelectorAll('section.category');
+      sections.forEach(sec => {
         const h2 = sec.querySelector('h2');
         const content = sec.querySelector('.section-content');
+
         if(!sec.classList.contains('open')){
           content.style.maxHeight = '0px';
           content.setAttribute('aria-hidden', 'true');
@@ -135,6 +218,7 @@
         h2.setAttribute('tabindex', '0');
         h2.setAttribute('role', 'button');
         h2.setAttribute('aria-expanded', sec.classList.contains('open') ? 'true' : 'false');
+
         function toggle(){
           const expanded = h2.getAttribute('aria-expanded') === 'true';
           if(expanded){
@@ -149,46 +233,66 @@
             content.style.maxHeight = content.scrollHeight + 'px';
             sec.classList.add('open');
             content.addEventListener('transitionend', function handler(){
-              if(h2.getAttribute('aria-expanded') === 'true'){ content.style.maxHeight = 'none'; }
+              if(h2.getAttribute('aria-expanded') === 'true'){
+                content.style.maxHeight = 'none';
+              }
               content.removeEventListener('transitionend', handler);
             });
           }
         }
+
         h2.addEventListener('click', toggle);
-        h2.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+        h2.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
       });
 
-      // PIX
       const modal = document.getElementById('pix-modal');
       const modalText = document.getElementById('pix-modal-text');
       const modalQr = document.getElementById('pix-modal-qr');
       const closeModalBtn = document.getElementById('pix-modal-close');
 
       function copyPix(row){
-        const data = PIX_DATA[row.dataset.giftId];
-        if(!data || !data.emv){ alert('Este presente ainda não possui chave PIX cadastrada.'); return; }
+        const giftId = row.dataset.giftId;
+        const data = PIX_DATA[giftId];
+        if(!data || !data.emv){
+          alert('Este presente ainda não possui chave PIX cadastrada.');
+          return;
+        }
         navigator.clipboard.writeText(data.emv)
           .then(()=> alert('PIX copiado com sucesso!'))
           .catch(()=> alert('Não foi possível copiar automaticamente.'));
       }
 
       function openQr(row){
-        const data = PIX_DATA[row.dataset.giftId];
+        const giftId = row.dataset.giftId;
+        const data = PIX_DATA[giftId];
         const title = row.querySelector('td[data-label="Presente"]')?.textContent?.trim() || 'Presente';
         modalText.textContent = title;
+
         if(data && data.qr){
           modalQr.innerHTML = '<img alt="QR Code PIX" src="' + data.qr + '">';
         } else {
           modalQr.textContent = 'Sem QR Code';
         }
+
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
       }
 
-      document.querySelectorAll('.js-copy-pix').forEach(btn => btn.addEventListener('click', function(){ copyPix(this.closest('tr')); }));
-      document.querySelectorAll('.js-open-qr').forEach(btn => btn.addEventListener('click', function(){ openQr(this.closest('tr')); }));
+      document.querySelectorAll('.js-copy-pix').forEach(btn => {
+        btn.addEventListener('click', function(){ copyPix(this.closest('tr')); });
+      });
 
-      function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); }
+      document.querySelectorAll('.js-open-qr').forEach(btn => {
+        btn.addEventListener('click', function(){ openQr(this.closest('tr')); });
+      });
+
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
       closeModalBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
       document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
