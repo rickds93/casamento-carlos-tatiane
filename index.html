@@ -11,11 +11,16 @@
     .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center; justify-content:center; }
     @media(max-width:480px){ .button-group{ gap:8px; } }
 
-    /* Keep action buttons at the bottom of the visible page */
-    html, body { min-height: 100%; }
-    main.wrap { min-height: 100vh; display: flex; }
-    .invite { flex: 1; min-height: 100%; display: flex; flex-direction: column; }
-    .button-group { margin-top: auto; padding-top: 24px; }
+    /* Push action buttons to the bottom of the page.
+       .wrap in styles.css uses align-items:flex-start, so .invite never stretched;
+       force it to stretch to the full page height. */
+    main.wrap{ align-items:stretch !important; }
+    section.invite{ display:flex !important; flex-direction:column; align-items:center; min-height:calc(100vh - 128px); }
+    section.invite .button-group{ margin-top:auto !important; padding-top:32px; }
+    section.invite .button-group .button{ margin-top:0; }
+    @media(max-width:640px){
+      section.invite{ min-height:calc(100vh - 128px); }
+    }
   </style>
 </head>
 <body>
@@ -52,8 +57,6 @@
         <a class="button" data-anim="7" id="gift-button" href="lista-de-presentes.html">Lista de Presentes</a>
         <a class="button secondary" data-anim="8" id="rsvp-button" href="https://forms.gle/ZCZuXb5wLyrNofV56" target="_blank" rel="noopener noreferrer">Confirmar Presença</a>
       </div>
-
-      <div class="divider" data-anim="9"></div>
     </section>
   </main>
 
