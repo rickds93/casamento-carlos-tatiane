@@ -10,6 +10,12 @@
     /* Force buttons side-by-side on index page */
     .button-group{ display:inline-flex !important; gap:14px !important; flex-direction:row !important; align-items:center; justify-content:center; }
     @media(max-width:480px){ .button-group{ gap:8px; } }
+
+    /* Keep action buttons at the bottom of the visible page */
+    html, body { min-height: 100%; }
+    main.wrap { min-height: 100vh; display: flex; }
+    .invite { flex: 1; min-height: 100%; display: flex; flex-direction: column; }
+    .button-group { margin-top: auto; padding-top: 24px; }
   </style>
 </head>
 <body>
