@@ -179,6 +179,7 @@
     const PIX_300 = { emv: '00020126690014BR.GOV.BCB.PIX0114+55419990005490229Casamento Alexandre & Tatiane5204000053039865406300.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***63048476', qr: '300.jpeg' };
     const PIX_400 = { emv: '00020126700014BR.GOV.BCB.PIX0114+55419990005490230Casamento Alexandre & Tatiane 5204000053039865406400.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***6304BDA8', qr: '400.jpeg' };
     const PIX_500 = { emv: '00020126700014BR.GOV.BCB.PIX0114+55419990005490230Casamento Alexandre & Tatiane 5204000053039865406500.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***6304E418', qr: '500.jpeg' };
+    const PIX_800 = { emv: '00020126700014BR.GOV.BCB.PIX0114+55419990005490230Casamento Alexandre & Tatiane 5204000053039865406800.005802BR5918TATIANE DOS SANTOS6008CURITIBA62070503***6304268B', qr: '800.jpeg' };
 
     const PIX_DATA = {
       // R$ 200
@@ -201,7 +202,12 @@
       'gift-07': PIX_500, // Um dia de aventura
       'gift-08': PIX_500, // Nosso cantinho dos sonhos
       'gift-14': PIX_500, // Um fim de semana inesquecível
-      'gift-18': PIX_500  // Nosso próximo destino
+      'gift-18': PIX_500, // Nosso próximo destino
+
+      // R$ 800
+      'gift-12': PIX_800, // Nosso próximo grande sonho
+      'gift-16': PIX_800, // A aventura dos nossos sonhos
+      'gift-19': PIX_800  // Construindo nosso futuro
     };
 
     document.addEventListener('DOMContentLoaded', function(){
@@ -215,7 +221,6 @@
       adjustMainPadding();
       window.addEventListener('resize', adjustMainPadding);
 
-      // Accordion
       document.querySelectorAll('section.category').forEach(sec => {
         const h2 = sec.querySelector('h2');
         const content = sec.querySelector('.section-content');
@@ -255,7 +260,6 @@
         });
       });
 
-      // PIX
       const modal = document.getElementById('pix-modal');
       const modalText = document.getElementById('pix-modal-text');
       const modalQr = document.getElementById('pix-modal-qr');
@@ -307,6 +311,10 @@
       document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
     });
   </script>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
 
   <script src="scripts.js" defer></script>
 </body>
