@@ -283,7 +283,10 @@
       function openQr(row){
         const giftId = row.dataset.giftId;
         const data = PIX_DATA[giftId];
-        const title = row.querySelector('td[data-label="Presente"]')?.textContent?.trim() || 'Presente';
+        const presentCell = row.querySelector('td[data-label="Presente"]');
+          const titleFromText = presentCell?.textContent?.trim();
+          const titleFromImgAlt = presentCell?.querySelector('img')?.alt?.trim();
+          const title = titleFromText || titleFromImgAlt || 'Presente';
         modalText.textContent = title;
 
         if(data && data.qr){
