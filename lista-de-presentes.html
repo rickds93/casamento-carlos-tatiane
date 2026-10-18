@@ -83,6 +83,13 @@
       header h1{ font-size:22px; }
       .countdown-inner{ gap:10px; }
       .countdown .number{ font-size:16px; }
+      table.gifts tbody td[data-label="Presente"]{
+  text-align: center;
+}
+
+table.gifts tbody td[data-label="Presente"] img{
+  display: block;
+  margin: 0 auto;
     }
 
     @media(max-width:480px){
@@ -91,6 +98,13 @@
       .countdown-inner{ gap:8px; }
       .countdown .number{ font-size:14px; }
       .gifts-wrap{ padding-top:10px; }
+      table.gifts tbody td[data-label="Presente"]{
+  text-align: center;
+}
+
+table.gifts tbody td[data-label="Presente"] img{
+  display: block;
+  margin: 0 auto;
     }
 
     @media(max-width:720px){
@@ -103,12 +117,12 @@
         overflow:hidden;
         border:1px solid rgba(0,0,0,0.04);
         table.gifts tbody td[data-label="Presente"]{
-  text-align: center;
+          text-align: center;
 }
 
-table.gifts tbody td[data-label="Presente"] img{
-  display: block;
-  margin: 0 auto;
+        table.gifts tbody td[data-label="Presente"] img{
+          display: block;
+        margin: 0 auto;
       }
       table.gifts tbody td::before{
         content:attr(data-label);
